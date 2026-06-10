@@ -7,6 +7,7 @@ type Observation = {
   title: string;
   description: string;
   category: string;
+  severity: string;
   status: string;
   createdAt: string;
 };
@@ -21,20 +22,22 @@ const categories = [
   "Customer",
   "Operations",
 ];
+const severities = ["Low", "Medium", "High", "Critical"];
 
 export default function Home() {
   const [observations, setObservations] = useState<Observation[]>([]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("Opportunity");
+  const [severity, setSeverity] = useState("Medium");
 
   useEffect(() => {
     const stored = localStorage.getItem("ginzaaipro_observations");
+
     if (stored) {
       setObservations(JSON.parse(stored));
     }
   }, []);
-
   useEffect(() => {
     localStorage.setItem(
       "ginzaaipro_observations",
@@ -46,6 +49,7 @@ export default function Home() {
     if (!title.trim() || !description.trim()) return;
 
     const newObservation: Observation = {
+      severity,
       id: crypto.randomUUID(),
       title,
       description,
@@ -58,6 +62,7 @@ export default function Home() {
     setTitle("");
     setDescription("");
     setCategory("Opportunity");
+    setSeverity("Medium");
   }
 
   function updateStatus(id: string, status: string) {
@@ -122,7 +127,18 @@ export default function Home() {
                   ))}
                 </select>
               </div>
-
+              <div>
+                <label className="text-sm text-slate-300">Severity</label>
+                <select
+                  className="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none focus:border-slate-400"
+                  value={severity}
+                  onChange={(event) => setSeverity(event.target.value)}
+                >
+                  {severities.map((item) => (
+                    <option key={item}>{item}</option>
+                  ))}
+                </select>
+              </div>
               <button
                 onClick={addObservation}
                 className="w-full rounded-xl bg-white px-4 py-3 font-semibold text-slate-950 hover:bg-slate-200"
@@ -159,7 +175,8 @@ export default function Home() {
                     <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
                       <div>
                         <p className="text-xs uppercase tracking-[0.2em] text-slate-500">
-                          {observation.category}
+                          {observation.category} ·{" "}
+                          {observation.severity ?? "Medium"}
                         </p>
                         <h3 className="mt-2 text-lg font-semibold">
                           {observation.title}
