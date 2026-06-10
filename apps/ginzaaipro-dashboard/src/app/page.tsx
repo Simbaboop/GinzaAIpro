@@ -1,65 +1,203 @@
-import Image from "next/image";
+"use client";
+
+import { useEffect, useState } from "react";
+
+type Observation = {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  status: string;
+  createdAt: string;
+};
+
+const categories = [
+  "Opportunity",
+  "Problem",
+  "Risk",
+  "Revenue",
+  "Research",
+  "Execution",
+  "Customer",
+  "Operations",
+];
 
 export default function Home() {
+  const [observations, setObservations] = useState<Observation[]>([]);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("Opportunity");
+
+  useEffect(() => {
+    const stored = localStorage.getItem("ginzaaipro_observations");
+    if (stored) {
+      setObservations(JSON.parse(stored));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(
+      "ginzaaipro_observations",
+      JSON.stringify(observations),
+    );
+  }, [observations]);
+
+  function addObservation() {
+    if (!title.trim() || !description.trim()) return;
+
+    const newObservation: Observation = {
+      id: crypto.randomUUID(),
+      title,
+      description,
+      category,
+      status: "New",
+      createdAt: new Date().toISOString(),
+    };
+
+    setObservations([newObservation, ...observations]);
+    setTitle("");
+    setDescription("");
+    setCategory("Opportunity");
+  }
+
+  function updateStatus(id: string, status: string) {
+    setObservations((current) =>
+      current.map((observation) =>
+        observation.id === id ? { ...observation, status } : observation,
+      ),
+    );
+  }
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main className="min-h-screen bg-slate-950 text-white">
+      <section className="mx-auto max-w-6xl px-6 py-10">
+        <header className="mb-10">
+          <p className="text-sm tracking-[0.3em] text-slate-400">GinzaAIpro</p>
+          <h1 className="mt-3 text-4xl font-bold tracking-tight">
+            Operational Intelligence Workbench
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="mt-4 max-w-2xl text-slate-300">
+            Capture observations, classify operational reality, govern
+            decisions, and convert insight into controlled execution.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+        </header>
+
+        <section className="grid gap-6 lg:grid-cols-[1fr_1.4fr]">
+          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+            <h2 className="text-2xl font-semibold">Capture Observation</h2>
+            <p className="mt-2 text-sm text-slate-400">
+              Record something noticed, discovered, reported, or inferred.
+            </p>
+
+            <div className="mt-6 space-y-4">
+              <div>
+                <label className="text-sm text-slate-300">Title</label>
+                <input
+                  className="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none focus:border-slate-400"
+                  value={title}
+                  onChange={(event) => setTitle(event.target.value)}
+                  placeholder="Example: Missed follow-up on moving lead"
+                />
+              </div>
+
+              <div>
+                <label className="text-sm text-slate-300">Description</label>
+                <textarea
+                  className="mt-2 min-h-32 w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none focus:border-slate-400"
+                  value={description}
+                  onChange={(event) => setDescription(event.target.value)}
+                  placeholder="Describe what happened and why it matters."
+                />
+              </div>
+
+              <div>
+                <label className="text-sm text-slate-300">Category</label>
+                <select
+                  className="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none focus:border-slate-400"
+                  value={category}
+                  onChange={(event) => setCategory(event.target.value)}
+                >
+                  {categories.map((item) => (
+                    <option key={item}>{item}</option>
+                  ))}
+                </select>
+              </div>
+
+              <button
+                onClick={addObservation}
+                className="w-full rounded-xl bg-white px-4 py-3 font-semibold text-slate-950 hover:bg-slate-200"
+              >
+                Save Observation
+              </button>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+            <div className="flex items-center justify-between gap-4">
+              <div>
+                <h2 className="text-2xl font-semibold">Observation Registry</h2>
+                <p className="mt-2 text-sm text-slate-400">
+                  Captured operational signals stored in browser storage.
+                </p>
+              </div>
+              <div className="rounded-full border border-slate-700 px-4 py-2 text-sm text-slate-300">
+                {observations.length} total
+              </div>
+            </div>
+
+            <div className="mt-6 space-y-4">
+              {observations.length === 0 ? (
+                <div className="rounded-xl border border-dashed border-slate-700 p-8 text-center text-slate-400">
+                  No observations captured yet.
+                </div>
+              ) : (
+                observations.map((observation) => (
+                  <div
+                    key={observation.id}
+                    className="rounded-xl border border-slate-800 bg-slate-950 p-5"
+                  >
+                    <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.2em] text-slate-500">
+                          {observation.category}
+                        </p>
+                        <h3 className="mt-2 text-lg font-semibold">
+                          {observation.title}
+                        </h3>
+                      </div>
+
+                      <select
+                        className="rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-white"
+                        value={observation.status}
+                        onChange={(event) =>
+                          updateStatus(observation.id, event.target.value)
+                        }
+                      >
+                        <option>New</option>
+                        <option>Under Review</option>
+                        <option>Approved</option>
+                        <option>Rejected</option>
+                        <option>In Progress</option>
+                        <option>Resolved</option>
+                        <option>Archived</option>
+                      </select>
+                    </div>
+
+                    <p className="mt-4 text-sm text-slate-300">
+                      {observation.description}
+                    </p>
+
+                    <p className="mt-4 text-xs text-slate-500">
+                      Captured:{" "}
+                      {new Date(observation.createdAt).toLocaleString()}
+                    </p>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
   );
 }
