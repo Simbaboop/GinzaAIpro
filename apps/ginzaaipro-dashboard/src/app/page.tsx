@@ -30,6 +30,9 @@ export default function Home() {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("Opportunity");
   const [severity, setSeverity] = useState("Medium");
+  const [categoryFilter, setCategoryFilter] = useState("All");
+  const [severityFilter, setSeverityFilter] = useState("All");
+  const [statusFilter, setStatusFilter] = useState("All");
 
   useEffect(() => {
     const stored = localStorage.getItem("ginzaaipro_observations");
@@ -72,6 +75,18 @@ export default function Home() {
       ),
     );
   }
+  const filteredObservations = observations.filter((observation) => {
+    const matchesCategory =
+      categoryFilter === "All" || observation.category === categoryFilter;
+
+    const matchesSeverity =
+      severityFilter === "All" || observation.severity === severityFilter;
+
+    const matchesStatus =
+      statusFilter === "All" || observation.status === statusFilter;
+
+    return matchesCategory && matchesSeverity && matchesStatus;
+  });
 
   return (
     <main className="min-h-screen bg-slate-950 text-white">
@@ -181,14 +196,52 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            <div className="mt-6 grid gap-3 md:grid-cols-3">
+              <select
+                className="rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-white"
+                value={categoryFilter}
+                onChange={(event) => setCategoryFilter(event.target.value)}
+              >
+                <option>All</option>
+                {categories.map((item) => (
+                  <option key={item}>{item}</option>
+                ))}
+              </select>
+
+              <select
+                className="rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-white"
+                value={severityFilter}
+                onChange={(event) => setSeverityFilter(event.target.value)}
+              >
+                <option>All</option>
+                {severities.map((item) => (
+                  <option key={item}>{item}</option>
+                ))}
+              </select>
+
+              <select
+                className="rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-white"
+                value={statusFilter}
+                onChange={(event) => setStatusFilter(event.target.value)}
+              >
+                <option>All</option>
+                <option>New</option>
+                <option>Under Review</option>
+                <option>Approved</option>
+                <option>Rejected</option>
+                <option>In Progress</option>
+                <option>Resolved</option>
+                <option>Archived</option>
+              </select>
+            </div>
 
             <div className="mt-6 space-y-4">
-              {observations.length === 0 ? (
+              {filteredObservations.length === 0 ? (
                 <div className="rounded-xl border border-dashed border-slate-700 p-8 text-center text-slate-400">
                   No observations captured yet.
                 </div>
               ) : (
-                observations.map((observation) => (
+                filteredObservations.map((observation) => (
                   <div
                     key={observation.id}
                     className="rounded-xl border border-slate-800 bg-slate-950 p-5"
