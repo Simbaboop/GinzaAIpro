@@ -156,8 +156,29 @@ export default function Home() {
                   Captured operational signals stored in browser storage.
                 </p>
               </div>
-              <div className="rounded-full border border-slate-700 px-4 py-2 text-sm text-slate-300">
-                {observations.length} total
+              <div className="flex gap-2 flex-wrap">
+                <div className="rounded-full border border-slate-700 px-4 py-2 text-sm text-slate-300">
+                  Total: {observations.length}
+                </div>
+
+                <div className="rounded-full border border-slate-700 px-4 py-2 text-sm text-red-300">
+                  Critical:{" "}
+                  {observations.filter((o) => o.severity === "Critical").length}
+                </div>
+
+                <div className="rounded-full border border-slate-700 px-4 py-2 text-sm text-orange-300">
+                  High:{" "}
+                  {observations.filter((o) => o.severity === "High").length}
+                </div>
+
+                <div className="rounded-full border border-slate-700 px-4 py-2 text-sm text-blue-300">
+                  Open:{" "}
+                  {
+                    observations.filter(
+                      (o) => o.status !== "Resolved" && o.status !== "Archived",
+                    ).length
+                  }
+                </div>
               </div>
             </div>
 
