@@ -11,6 +11,7 @@ type Observation = {
   status: string;
   outcome: string;
   decisionNote: string;
+  owner: string;
   createdAt: string;
 };
 
@@ -32,6 +33,7 @@ export default function Home() {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("Opportunity");
   const [severity, setSeverity] = useState("Medium");
+  const [owner, setOwner] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("All");
   const [severityFilter, setSeverityFilter] = useState("All");
   const [statusFilter, setStatusFilter] = useState("All");
@@ -63,6 +65,7 @@ export default function Home() {
       status: "New",
       outcome: "",
       decisionNote: "",
+      owner,
       createdAt: new Date().toISOString(),
     };
 
@@ -71,6 +74,7 @@ export default function Home() {
     setDescription("");
     setCategory("Opportunity");
     setSeverity("Medium");
+    setOwner("");
   }
 
   function updateStatus(id: string, status: string) {
@@ -184,6 +188,16 @@ export default function Home() {
                 onClick={addObservation}
                 className="w-full rounded-xl bg-white px-4 py-3 font-semibold text-slate-950 hover:bg-slate-200"
               >
+                <div>
+                  <label className="text-sm text-slate-300">Owner</label>
+
+                  <input
+                    className="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none focus:border-slate-400"
+                    value={owner}
+                    onChange={(event) => setOwner(event.target.value)}
+                    placeholder="Person, team, role, or agent responsible..."
+                  />
+                </div>
                 Save Observation
               </button>
             </div>
@@ -286,6 +300,10 @@ export default function Home() {
                         <p className="text-xs uppercase tracking-[0.2em] text-slate-500">
                           {observation.category} ·{" "}
                           {observation.severity ?? "Medium"}
+                        </p>
+
+                        <p className="mt-1 text-xs text-slate-400">
+                          Owner: {observation.owner || "Unassigned"}
                         </p>
                         <h3 className="mt-2 text-lg font-semibold">
                           {observation.title}
