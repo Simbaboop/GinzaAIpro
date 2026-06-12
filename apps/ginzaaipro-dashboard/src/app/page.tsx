@@ -34,6 +34,7 @@ export default function Home() {
   const [categoryFilter, setCategoryFilter] = useState("All");
   const [severityFilter, setSeverityFilter] = useState("All");
   const [statusFilter, setStatusFilter] = useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const stored = localStorage.getItem("ginzaaipro_observations");
@@ -93,8 +94,15 @@ export default function Home() {
 
     const matchesStatus =
       statusFilter === "All" || observation.status === statusFilter;
+    const normalizedSearch = searchQuery.toLowerCase();
 
-    return matchesCategory && matchesSeverity && matchesStatus;
+    const matchesSearch =
+      normalizedSearch === "" ||
+      observation.title.toLowerCase().includes(normalizedSearch) ||
+      observation.description.toLowerCase().includes(normalizedSearch) ||
+      (observation.outcome ?? "").toLowerCase().includes(normalizedSearch);
+
+    return matchesCategory && matchesSeverity && matchesStatus && matchesSearch;
   });
 
   return (
@@ -205,6 +213,15 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            <div className="mt-6">
+              <input
+                className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none focus:border-slate-400"
+                placeholder="Search observations..."
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
+              />
+            </div>
+
             <div className="mt-6 grid gap-3 md:grid-cols-3">
               <select
                 className="rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-white"
