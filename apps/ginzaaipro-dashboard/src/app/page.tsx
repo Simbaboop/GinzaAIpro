@@ -10,6 +10,7 @@ type Observation = {
   severity: string;
   status: string;
   outcome: string;
+  decisionNote: string;
   createdAt: string;
 };
 
@@ -61,6 +62,7 @@ export default function Home() {
       category,
       status: "New",
       outcome: "",
+      decisionNote: "",
       createdAt: new Date().toISOString(),
     };
 
@@ -82,6 +84,13 @@ export default function Home() {
     setObservations((current) =>
       current.map((observation) =>
         observation.id === id ? { ...observation, outcome } : observation,
+      ),
+    );
+  }
+  function updateDecisionNote(id: string, decisionNote: string) {
+    setObservations((current) =>
+      current.map((observation) =>
+        observation.id === id ? { ...observation, decisionNote } : observation,
       ),
     );
   }
@@ -318,11 +327,20 @@ export default function Home() {
                         placeholder="Record what happened next, what was learned, or what decision resulted."
                       />
                     </div>
+                    <div className="mt-4">
+                      <label className="text-xs uppercase tracking-[0.2em] text-slate-500">
+                        Decision Note
+                      </label>
 
-                    <p className="mt-4 text-xs text-slate-500">
-                      Captured:{" "}
-                      {new Date(observation.createdAt).toLocaleString()}
-                    </p>
+                      <textarea
+                        className="mt-2 min-h-24 w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-white outline-none focus:border-slate-400"
+                        value={observation.decisionNote ?? ""}
+                        onChange={(event) =>
+                          updateDecisionNote(observation.id, event.target.value)
+                        }
+                        placeholder="Record approvals, rejections, rationale, owners, review dates, or governance decisions."
+                      />
+                    </div>
 
                     <p className="mt-4 text-xs text-slate-500">
                       Captured:{" "}
