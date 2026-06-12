@@ -9,6 +9,7 @@ type Observation = {
   category: string;
   severity: string;
   status: string;
+  outcome: string;
   createdAt: string;
 };
 
@@ -58,6 +59,7 @@ export default function Home() {
       description,
       category,
       status: "New",
+      outcome: "",
       createdAt: new Date().toISOString(),
     };
 
@@ -72,6 +74,13 @@ export default function Home() {
     setObservations((current) =>
       current.map((observation) =>
         observation.id === id ? { ...observation, status } : observation,
+      ),
+    );
+  }
+  function updateOutcome(id: string, outcome: string) {
+    setObservations((current) =>
+      current.map((observation) =>
+        observation.id === id ? { ...observation, outcome } : observation,
       ),
     );
   }
@@ -276,6 +285,26 @@ export default function Home() {
 
                     <p className="mt-4 text-sm text-slate-300">
                       {observation.description}
+                    </p>
+
+                    <div className="mt-4">
+                      <label className="text-xs uppercase tracking-[0.2em] text-slate-500">
+                        Outcome / Learning
+                      </label>
+
+                      <textarea
+                        className="mt-2 min-h-24 w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-white outline-none focus:border-slate-400"
+                        value={observation.outcome ?? ""}
+                        onChange={(event) =>
+                          updateOutcome(observation.id, event.target.value)
+                        }
+                        placeholder="Record what happened next, what was learned, or what decision resulted."
+                      />
+                    </div>
+
+                    <p className="mt-4 text-xs text-slate-500">
+                      Captured:{" "}
+                      {new Date(observation.createdAt).toLocaleString()}
                     </p>
 
                     <p className="mt-4 text-xs text-slate-500">
