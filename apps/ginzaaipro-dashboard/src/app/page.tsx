@@ -12,6 +12,7 @@ type Observation = {
   outcome: string;
   decisionNote: string;
   owner: string;
+  nextAction: string;
   createdAt: string;
 };
 
@@ -34,6 +35,7 @@ export default function Home() {
   const [category, setCategory] = useState("Opportunity");
   const [severity, setSeverity] = useState("Medium");
   const [owner, setOwner] = useState("");
+  const [nextAction, setNextAction] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("All");
   const [severityFilter, setSeverityFilter] = useState("All");
   const [statusFilter, setStatusFilter] = useState("All");
@@ -66,6 +68,7 @@ export default function Home() {
       outcome: "",
       decisionNote: "",
       owner,
+      nextAction,
       createdAt: new Date().toISOString(),
     };
 
@@ -75,6 +78,7 @@ export default function Home() {
     setCategory("Opportunity");
     setSeverity("Medium");
     setOwner("");
+    setNextAction("");
   }
 
   function updateStatus(id: string, status: string) {
@@ -95,6 +99,13 @@ export default function Home() {
     setObservations((current) =>
       current.map((observation) =>
         observation.id === id ? { ...observation, decisionNote } : observation,
+      ),
+    );
+  }
+  function updateNextAction(id: string, nextAction: string) {
+    setObservations((current) =>
+      current.map((observation) =>
+        observation.id === id ? { ...observation, nextAction } : observation,
       ),
     );
   }
@@ -184,20 +195,31 @@ export default function Home() {
                   ))}
                 </select>
               </div>
+              <div>
+                <label className="text-sm text-slate-300">Next Action</label>
+
+                <input
+                  className="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none focus:border-slate-400"
+                  value={nextAction}
+                  onChange={(event) => setNextAction(event.target.value)}
+                  placeholder="Smallest next step to move this forward..."
+                />
+              </div>
+              <div>
+                <label className="text-sm text-slate-300">Owner</label>
+
+                <input
+                  className="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none focus:border-slate-400"
+                  value={owner}
+                  onChange={(event) => setOwner(event.target.value)}
+                  placeholder="Person, team, role, or agent responsible..."
+                />
+              </div>
+
               <button
                 onClick={addObservation}
                 className="w-full rounded-xl bg-white px-4 py-3 font-semibold text-slate-950 hover:bg-slate-200"
               >
-                <div>
-                  <label className="text-sm text-slate-300">Owner</label>
-
-                  <input
-                    className="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none focus:border-slate-400"
-                    value={owner}
-                    onChange={(event) => setOwner(event.target.value)}
-                    placeholder="Person, team, role, or agent responsible..."
-                  />
-                </div>
                 Save Observation
               </button>
             </div>
@@ -331,6 +353,25 @@ export default function Home() {
                       {observation.description}
                     </p>
 
+                    <div className="mt-4 space-y-3 rounded-lg border border-slate-800 bg-slate-900/50 p-3">
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.2em] text-slate-500">
+                          Decision Note
+                        </p>
+                        <p className="mt-1 text-sm text-slate-300">
+                          {observation.decisionNote || "No decision recorded"}
+                        </p>
+                      </div>
+
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.2em] text-slate-500">
+                          Next Action
+                        </p>
+                        <p className="mt-1 text-sm text-slate-300">
+                          {observation.nextAction || "No next action defined"}
+                        </p>
+                      </div>
+                    </div>
                     <div className="mt-4">
                       <label className="text-xs uppercase tracking-[0.2em] text-slate-500">
                         Outcome / Learning
