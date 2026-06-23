@@ -121,6 +121,21 @@ export default function Home() {
       ),
     );
   }
+  function getOutcomeStatusColor(status: Observation["outcomeStatus"]) {
+    switch (status) {
+      case "Resolved":
+        return "text-green-400";
+
+      case "Escalated":
+        return "text-red-400";
+
+      case "Improving":
+        return "text-blue-400";
+
+      default:
+        return "text-slate-400";
+    }
+  }
   const filteredObservations = observations.filter((observation) => {
     const matchesCategory =
       categoryFilter === "All" || observation.category === categoryFilter;
@@ -367,12 +382,26 @@ export default function Home() {
 
                     <div className="mt-4 space-y-3 rounded-lg border border-slate-800 bg-slate-900/50 p-3">
                       <div>
-                        <p className="text-xs uppercase tracking-[0.2em] text-slate-500">
-                          Decision Note
-                        </p>
-                        <p className="mt-1 text-sm text-slate-300">
-                          {observation.decisionNote || "No decision recorded"}
-                        </p>
+                        <label className="text-xs uppercase tracking-[0.2em] text-slate-500">
+                          Outcome Status
+                        </label>
+
+                        <select
+                          className="mt-2 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-white outline-none focus:border-slate-400"
+                          value={observation.outcomeStatus}
+                          onChange={(event) =>
+                            updateOutcomeStatus(
+                              observation.id,
+                              event.target
+                                .value as Observation["outcomeStatus"],
+                            )
+                          }
+                        >
+                          <option>Open</option>
+                          <option>Improving</option>
+                          <option>Resolved</option>
+                          <option>Escalated</option>
+                        </select>
                       </div>
 
                       <div>
