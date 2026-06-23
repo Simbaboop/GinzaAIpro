@@ -385,6 +385,13 @@ export default function Home() {
                         <label className="text-xs uppercase tracking-[0.2em] text-slate-500">
                           Outcome Status
                         </label>
+                        <p
+                          className={`mt-1 text-sm font-medium ${getOutcomeStatusColor(
+                            observation.outcomeStatus,
+                          )}`}
+                        >
+                          {observation.outcomeStatus}
+                        </p>
 
                         <select
                           className="mt-2 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-white outline-none focus:border-slate-400"
