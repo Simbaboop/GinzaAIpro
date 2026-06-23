@@ -13,6 +13,7 @@ type Observation = {
   decisionNote: string;
   owner: string;
   nextAction: string;
+  outcomeStatus: "Open" | "Improving" | "Resolved" | "Escalated";
   createdAt: string;
 };
 
@@ -69,6 +70,7 @@ export default function Home() {
       decisionNote: "",
       owner,
       nextAction,
+      outcomeStatus: "Open",
       createdAt: new Date().toISOString(),
     };
 
@@ -106,6 +108,16 @@ export default function Home() {
     setObservations((current) =>
       current.map((observation) =>
         observation.id === id ? { ...observation, nextAction } : observation,
+      ),
+    );
+  }
+  function updateOutcomeStatus(
+    id: string,
+    outcomeStatus: Observation["outcomeStatus"],
+  ) {
+    setObservations((current) =>
+      current.map((observation) =>
+        observation.id === id ? { ...observation, outcomeStatus } : observation,
       ),
     );
   }
@@ -367,8 +379,19 @@ export default function Home() {
                         <p className="text-xs uppercase tracking-[0.2em] text-slate-500">
                           Next Action
                         </p>
+
                         <p className="mt-1 text-sm text-slate-300">
                           {observation.nextAction || "No next action defined"}
+                        </p>
+                      </div>
+
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.2em] text-slate-500">
+                          Outcome Status
+                        </p>
+
+                        <p className="mt-1 text-sm text-slate-300">
+                          {observation.outcomeStatus}
                         </p>
                       </div>
                     </div>
