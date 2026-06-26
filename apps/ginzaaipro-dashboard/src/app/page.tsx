@@ -16,6 +16,11 @@ type Observation = {
   outcomeStatus: "Open" | "Improving" | "Resolved" | "Escalated";
 
   workflowState: "Draft" | "Ready" | "Executing" | "Completed" | "Escalated";
+  verificationStatus:
+    | "Unverified"
+    | "Verified"
+    | "Needs Review"
+    | "Failed Verification";
 
   createdAt: string;
 };
@@ -75,6 +80,7 @@ export default function Home() {
       nextAction,
       outcomeStatus: "Open",
       workflowState: "Draft",
+      verificationStatus: "Unverified",
       createdAt: new Date().toISOString(),
     };
 
@@ -147,6 +153,18 @@ export default function Home() {
     setObservations((current) =>
       current.map((observation) =>
         observation.id === id ? { ...observation, workflowState } : observation,
+      ),
+    );
+  }
+  function updateVerificationStatus(
+    id: string,
+    verificationStatus: Observation["verificationStatus"],
+  ) {
+    setObservations((current) =>
+      current.map((observation) =>
+        observation.id === id
+          ? { ...observation, verificationStatus }
+          : observation,
       ),
     );
   }
