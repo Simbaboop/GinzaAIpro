@@ -434,7 +434,15 @@ export default function Home() {
                           {observation.nextAction || "No next action defined"}
                         </p>
                       </div>
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.2em] text-slate-500">
+                          Workflow State
+                        </p>
 
+                        <p className="mt-1 text-sm text-slate-300">
+                          {observation.workflowState}
+                        </p>
+                      </div>
                       <div>
                         <p className="text-xs uppercase tracking-[0.2em] text-slate-500">
                           Outcome Status
