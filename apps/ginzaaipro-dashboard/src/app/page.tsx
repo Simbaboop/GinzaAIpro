@@ -14,6 +14,9 @@ type Observation = {
   owner: string;
   nextAction: string;
   outcomeStatus: "Open" | "Improving" | "Resolved" | "Escalated";
+
+  workflowState: "Draft" | "Ready" | "Executing" | "Completed" | "Escalated";
+
   createdAt: string;
 };
 
@@ -71,6 +74,7 @@ export default function Home() {
       owner,
       nextAction,
       outcomeStatus: "Open",
+      workflowState: "Draft",
       createdAt: new Date().toISOString(),
     };
 
@@ -135,6 +139,16 @@ export default function Home() {
       default:
         return "text-slate-400";
     }
+  }
+  function updateWorkflowState(
+    id: string,
+    workflowState: Observation["workflowState"],
+  ) {
+    setObservations((current) =>
+      current.map((observation) =>
+        observation.id === id ? { ...observation, workflowState } : observation,
+      ),
+    );
   }
   const filteredObservations = observations.filter((observation) => {
     const matchesCategory =
