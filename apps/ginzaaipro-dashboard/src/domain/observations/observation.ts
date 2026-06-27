@@ -1,3 +1,4 @@
+import type { OperationalEntity } from "@/domain/core/operational-entity";
 export type OutcomeStatus = "Open" | "Improving" | "Resolved" | "Escalated";
 
 export type WorkflowState =
@@ -13,8 +14,7 @@ export type VerificationStatus =
   | "Needs Review"
   | "Failed Verification";
 
-export type Observation = {
-  id: string;
+export type Observation = OperationalEntity & {
   title: string;
   description: string;
   category: string;
@@ -27,5 +27,4 @@ export type Observation = {
   outcomeStatus: OutcomeStatus;
   workflowState: WorkflowState;
   verificationStatus: VerificationStatus;
-  createdAt: string;
 };
