@@ -17,6 +17,10 @@ export class CapabilityRegistry {
     return this.capabilities.get(name);
   }
 
+  has(name: string): boolean {
+    return this.capabilities.has(name);
+  }
+
   getAll(): RuntimeCapability[] {
     return Array.from(this.capabilities.values());
   }
