@@ -1,29 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
-type Observation = {
-  id: string;
-  title: string;
-  description: string;
-  category: string;
-  severity: string;
-  status: string;
-  outcome: string;
-  decisionNote: string;
-  owner: string;
-  nextAction: string;
-  outcomeStatus: "Open" | "Improving" | "Resolved" | "Escalated";
-
-  workflowState: "Draft" | "Ready" | "Executing" | "Completed" | "Escalated";
-  verificationStatus:
-    | "Unverified"
-    | "Verified"
-    | "Needs Review"
-    | "Failed Verification";
-
-  createdAt: string;
-};
+import type { Observation } from "@/domain/observations/observation";
 
 const categories = [
   "Opportunity",
@@ -459,6 +437,15 @@ export default function Home() {
 
                         <p className="mt-1 text-sm text-slate-300">
                           {observation.workflowState}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.2em] text-slate-500">
+                          Verification Status
+                        </p>
+
+                        <p className="mt-1 text-sm text-slate-300">
+                          {observation.verificationStatus}
                         </p>
                       </div>
                       <div>
