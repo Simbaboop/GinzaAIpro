@@ -28,4 +28,23 @@ export class Runtime {
   state() {
     return this.lifecycle.getState();
   }
+  initialize(): void {
+    this.lifecycle.transitionTo("Initializing");
+  }
+
+  start(): void {
+    this.lifecycle.transitionTo("Running");
+  }
+
+  stop(): void {
+    this.lifecycle.transitionTo("Stopping");
+  }
+
+  completeStop(): void {
+    this.lifecycle.transitionTo("Stopped");
+  }
+
+  fail(): void {
+    this.lifecycle.transitionTo("Failed");
+  }
 }
