@@ -3,10 +3,7 @@ import type { RuntimeState } from "./lifecycle";
 /**
  * RuntimeLifecycleManager
  *
- * Owns Runtime state transitions.
- *
- * The Runtime coordinates capabilities.
- * The Lifecycle Manager controls lifecycle state.
+ * Owns controlled Runtime state transitions.
  */
 export class RuntimeLifecycleManager {
   private state: RuntimeState = "Created";
@@ -15,23 +12,26 @@ export class RuntimeLifecycleManager {
     return this.state;
   }
 
-  markInitializing(): void {
-    this.state = "Initializing";
+  transitionTo(nextState: RuntimeState): void {
+    if (!this.canTransitionTo(nextState)) {
+      throw new Error(
+        `Invalid runtime transition: ${this.state} -> ${nextState}`,
+      );
+    }
+
+    this.state = nextState;
   }
 
-  markRunning(): void {
-    this.state = "Running";
-  }
+  private canTransitionTo(nextState: RuntimeState): boolean {
+    const allowedTransitions: Record<RuntimeState, RuntimeState[]> = {
+      Created: ["Initializing", "Failed"],
+      Initializing: ["Running", "Failed"],
+      Running: ["Stopping", "Failed"],
+      Stopping: ["Stopped", "Failed"],
+      Stopped: [],
+      Failed: [],
+    };
 
-  markStopping(): void {
-    this.state = "Stopping";
-  }
-
-  markStopped(): void {
-    this.state = "Stopped";
-  }
-
-  markFailed(): void {
-    this.state = "Failed";
+    return allowedTransitions[this.state].includes(nextState);
   }
 }
