@@ -1,4 +1,6 @@
 import { CapabilityRegistry } from "./registry";
+import { RuntimeLifecycleManager } from "./lifecycle-manager";
+
 import type { RuntimeCapability } from "./capability";
 
 /**
@@ -8,6 +10,8 @@ import type { RuntimeCapability } from "./capability";
  */
 export class Runtime {
   private readonly registry = new CapabilityRegistry();
+
+  private readonly lifecycle = new RuntimeLifecycleManager();
 
   register(capability: RuntimeCapability): void {
     this.registry.register(capability);
@@ -19,5 +23,9 @@ export class Runtime {
 
   capabilities(): RuntimeCapability[] {
     return this.registry.getAll();
+  }
+
+  state() {
+    return this.lifecycle.getState();
   }
 }
