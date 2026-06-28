@@ -28,4 +28,9 @@ export interface RuntimeContext {
    * Runtime environment.
    */
   environment: "development" | "testing" | "staging" | "production";
+
+  /**
+   * Runtime semantic version.
+   */
+  runtimeVersion: string;
 }
