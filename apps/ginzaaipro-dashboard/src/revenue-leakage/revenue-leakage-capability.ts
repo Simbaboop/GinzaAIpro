@@ -30,7 +30,6 @@ export class RevenueLeakageCapability implements RuntimeCapability {
       summary: "Revenue Leakage capability is operational.",
       estimatedImpact: 0,
     });
-
-    return finding.severity === "Low";
+    return finding.payload.severity === "Low";
   }
 }

@@ -1,5 +1,6 @@
 import type { OperationalEvidence } from "@/operational-evidence/types";
 import type { GraphNode } from "@/operational-knowledge-graph/types";
+import type { OperationalResult } from "@/shared/intelligence/operational-result";
 
 import type {
   RevenueLeakageFinding,
@@ -20,22 +21,36 @@ export class RevenueLeakageEngine {
     estimatedImpact: number;
     evidence?: OperationalEvidence[];
     graphNodes?: GraphNode[];
-  }): RevenueLeakageFinding {
-    return {
+    memoryEntryIds?: string[];
+  }): OperationalResult<RevenueLeakageFinding> {
+    const evidenceIds = params.evidence?.map((record) => record.id) ?? [];
+    const graphNodeIds = params.graphNodes?.map((node) => node.id) ?? [];
+    const memoryEntryIds = params.memoryEntryIds ?? [];
+
+    const finding: RevenueLeakageFinding = {
       id: crypto.randomUUID(),
       title: params.title,
       summary: params.summary,
       severity: this.inferSeverity(params.estimatedImpact),
-      confidence: this.inferConfidence(
-        params.evidence?.length ?? 0,
-        params.graphNodes?.length ?? 0,
-      ),
+      confidence: this.inferConfidence(evidenceIds.length, graphNodeIds.length),
       estimatedImpact: params.estimatedImpact,
-      evidenceIds: params.evidence?.map((record) => record.id) ?? [],
-      graphNodeIds: params.graphNodes?.map((node) => node.id) ?? [],
+      evidenceIds,
+      graphNodeIds,
       recommendation:
         "Review the leakage path and prioritize corrective action.",
       createdAt: new Date().toISOString(),
+    };
+
+    return {
+      id: crypto.randomUUID(),
+      capability: "revenue-leakage",
+      summary: finding.summary,
+      confidence: this.confidenceToNumber(finding.confidence),
+      evidenceIds,
+      graphNodeIds,
+      memoryEntryIds,
+      createdAt: new Date().toISOString(),
+      payload: finding,
     };
   }
 
@@ -57,5 +72,12 @@ export class RevenueLeakageEngine {
     if (signalStrength >= 3) return "Medium";
 
     return "Low";
+  }
+
+  private confidenceToNumber(confidence: RevenueLeakageConfidence): number {
+    if (confidence === "High") return 0.9;
+    if (confidence === "Medium") return 0.6;
+
+    return 0.3;
   }
 }
