@@ -1,15 +1,20 @@
-import type { BusinessRecommendation } from "./types";
-
+import type { OperationalResult } from "@/shared/intelligence/operational-result";
 import type { RevenueLeakageFinding } from "@/revenue-leakage/types";
+
+import type { BusinessRecommendation } from "./types";
 
 /**
  * BusinessRecommendationEngine
  *
- * Converts operational findings into
+ * Converts operational intelligence results into
  * prioritized business recommendations.
  */
 export class BusinessRecommendationEngine {
-  recommend(finding: RevenueLeakageFinding): BusinessRecommendation {
+  recommend(
+    result: OperationalResult<RevenueLeakageFinding>,
+  ): BusinessRecommendation {
+    const finding = result.payload;
+
     return {
       id: crypto.randomUUID(),
 
@@ -17,7 +22,8 @@ export class BusinessRecommendationEngine {
 
       summary: finding.summary,
 
-      rationale: "Recommendation generated from Revenue Leakage Intelligence.",
+      rationale:
+        "Recommendation generated from Revenue Leakage Intelligence result.",
 
       priority: finding.severity,
 
@@ -25,9 +31,9 @@ export class BusinessRecommendationEngine {
 
       governanceRequired: true,
 
-      evidenceIds: [...finding.evidenceIds],
+      evidenceIds: [...result.evidenceIds],
 
-      graphNodeIds: [...finding.graphNodeIds],
+      graphNodeIds: [...result.graphNodeIds],
 
       createdAt: new Date().toISOString(),
     };
