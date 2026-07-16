@@ -4,7 +4,7 @@ Date: 2026-07-15
 
 ## Outcome
 
-Project Canon established and closed one traceable registry without modifying historical source documents. The closed registry contains 25 registered rules, 9 decision entries, 4 deprecation/history entries, 15 terminology entries, 5 resolved conflicts, and no open conflicts.
+Project Canon established and closed one traceable registry. After the approved scaffold and naming migration, the registry contains 25 registered rules, 10 decision entries, 8 deprecation/history entries, 17 terminology entries, 5 resolved conflicts, and no open conflicts.
 
 ## Classification summary
 
@@ -13,7 +13,8 @@ Project Canon established and closed one traceable registry without modifying hi
 - **Amended:** governance/orchestration phase boundaries and the platform/human authority boundary, through DEC-0008 and DEC-0009.
 - **Absorbed:** legacy `decisions/0001_Capture_First_Architecture.md` into the canonical ADR-0001 while preserving its dated consequences.
 - **Retired:** empty ADR placeholders and zero-length README/decision documentation; they carry no operative rule.
-- **Superseded, Deprecated, Rejected:** no repository evidence justified applying these classifications to an operative rule or accepted decision.
+- **Deprecated:** “Business Physics” as a GinzaAIpro platform name and “Operational Intelligence Runtime”; neither was an operative canonical subsystem.
+- **Superseded, Rejected:** no repository evidence justified applying these classifications to an operative rule or accepted decision.
 
 ## Source inventory — governing and architectural
 
@@ -51,7 +52,7 @@ Project Canon established and closed one traceable registry without modifying hi
 | `docs/11_Operational_Knowledge_Graph.md` | Active | Explicit canonical v1.0 graph model and invariants |
 | `apps/.../business-recommendations/CAPABILITY_SPEC.md` | Active (capability scope) | Explicit canonical capability contract |
 | `apps/.../revenue-leakage/CAPABILITY_SPEC.md` | Active (capability scope) | Explicit canonical capability contract |
-| `apps/.../capabilities/revenue-leakage/README.md` | Active (capability scope) | Completeness law and governed capability flow |
+| `apps/.../capabilities/revenue-leakage/README.md` | Absorbed and retired | Compatible completeness criteria moved to the canonical Revenue Leakage capability specification; duplicate source removed |
 
 ## Source inventory — implementation README contracts
 
@@ -59,13 +60,26 @@ The following non-empty README files are **Active in their directory scope** and
 
 The generated Next.js `apps/ginzaaipro-dashboard/README.md` is **Active only as tooling guidance** and has no governance authority.
 
-The following are **Retired as rule evidence because they are empty**: root `README.md`, root `DECISIONS.md`, `operational-journeys/README.md`, `platform/business-physics/docs/{README,BUSINESS_PHYSICS_LAWS,SIMULATION_ENGINE,VALIDATION_PROTOCOL}.md`, `platform/business-physics-engine/docs/README.md`, and `platform/operational-intelligence/runtime/README.md`. Files remain in place.
+Root `README.md`, root `DECISIONS.md`, and `operational-journeys/README.md` remain retired empty placeholders. The former `platform/business-physics/`, `platform/business-physics-engine/`, and `platform/operational-intelligence/` untracked scaffolds were removed under DEC-0010 after traceability was recorded.
 
 ## Duplicates and absorbed material
 
 1. Two accepted ADR-0001 files express the same capture-first decision. The `docs/architecture/adr/` version is the active decision because the canonical architecture README declares that ADR location; the legacy dated file is absorbed, not deleted.
 2. Capture-first, governance-before-execution, evidence, explainability, append-only memory, and downward-dependency rules repeat across constitutional, canonical, and subsystem documents. These are reinforcing duplicates; the register cites the highest-authority statement and retains compatible elaborations.
-3. Revenue Leakage and Business Recommendations appear in more than one package path. Their contracts are compatible but package ownership/migration is not explicitly decided; the registry does not infer a supersession.
+3. The duplicate `src/capabilities/revenue-leakage/` scaffold was absorbed into `src/revenue-leakage/CAPABILITY_SPEC.md`; `src/revenue-leakage/` is now the sole canonical owner.
+
+## Scaffold and naming migration
+
+DEC-0010 approved and records the 2026-07-15 migration:
+
+- `apps/ginzaaipro-dashboard/src/capabilities/revenue-leakage/` — compatible completeness language absorbed; duplicate types and empty files retired; path removed.
+- `apps/ginzaaipro-dashboard/src/platform/business-physics/` — empty duplicate retired and removed.
+- `apps/ginzaaipro-dashboard/src/platform/business-physics-engine/` — top-level subsystem rejected; substantive `law-types.ts` and `business-state.ts` concepts redesigned under `research/cosmos/organizational-dynamics/experimental/`; remaining empty scaffold retired and path removed.
+- `apps/ginzaaipro-dashboard/src/platform/operational-intelligence/` — empty cross-boundary umbrella retired and removed; no replacement package created.
+- “Business Physics” — deprecated as a GinzaAIpro platform name; “Organizational Dynamics” adopted for the non-canonical COSMOS scientific/research concept.
+- “Operational Intelligence Runtime” — deprecated; “Operational Runtime” adopted only as a future coordination term. Runtime coordinates lifecycle activity and does not own business reasoning, Governance, Workforce, Execution, Verification, or Learning.
+
+The migrated research is explicitly experimental, non-canonical, non-executable, and neither Operational Evidence nor Governance policy.
 
 ## Architectural evolution
 
@@ -75,7 +89,7 @@ The following are **Retired as rule evidence because they are empty**: root `REA
 
 ## Terminology drift
 
-The terminology register resolves or flags Event vs Operational Event, Event vs Signal, Runtime Health vs Operational Health, Operational Intelligence vs Operational Cognition, Observation vs Evidence vs OKG, Execution fields vs Execution Aggregate, and orchestration naming. No source was rewritten.
+The terminology register resolves or flags Event vs Operational Event, Event vs Signal, Runtime Health vs Operational Health, Operational Intelligence vs Operational Cognition, Observation vs Evidence vs OKG, Execution fields vs Execution Aggregate, orchestration naming, Organizational Dynamics, and Operational Runtime.
 
 ## Conflict closure
 
@@ -88,4 +102,4 @@ Both conflict rows retain their original issue and prior open-state history in t
 
 ## Preservation statement
 
-No historical source was deleted, moved, or overwritten. All reconciliation changes are confined to `governance/canonical-registry/`.
+Project Canon sources and accepted architecture history remain intact. Only explicitly approved untracked duplicate/empty scaffolds were removed. The two substantive experimental models were preserved in redesigned form under COSMOS research with their former paths recorded in DEP-0007 and this report.

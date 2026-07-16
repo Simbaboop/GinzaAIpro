@@ -35,6 +35,13 @@ No unresolved conflicts remain.
 
 Resolution history remains in [`CONFLICT_REGISTER.md`](registers/CONFLICT_REGISTER.md#resolution-history).
 
+## Naming and scaffold disposition
+
+- DEC-0010 preserves `apps/ginzaaipro-dashboard/src/revenue-leakage/` as the sole canonical Revenue Leakage owner and records its duplicate scaffold as absorbed.
+- “Business Physics” is deprecated as a GinzaAIpro platform name. Substantive prototypes survive only as [`experimental COSMOS Organizational Dynamics research`](../../research/cosmos/organizational-dynamics/experimental/README.md).
+- “Operational Intelligence Runtime” is deprecated. “Operational Runtime” is the approved future coordination term, documentation-only unless separately approved through Project Canon.
+- No new top-level platform subsystem was created.
+
 ## Templates
 
 - [`RULE_TEMPLATE.md`](templates/RULE_TEMPLATE.md)

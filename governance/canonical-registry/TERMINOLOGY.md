@@ -11,5 +11,7 @@ The most important distinctions are:
 - Engine, Service, Capability, Store, and Router name different responsibilities as defined by canonical naming conventions.
 - Human constitutional authority owns purpose, policy change, critical exceptions, irreversible actions, and risk limits; deterministic platform policy exercises only explicitly delegated routine authority.
 - Emergency override is exceptional, authorized, scoped, time-bound, justified, and immutably audited—not a bypass of mandatory controls.
+- Organizational Dynamics is the preferred COSMOS research term; “Business Physics” is deprecated as a GinzaAIpro platform name.
+- Operational Runtime is reserved for a future lifecycle-coordination concept. It is not a current code package and must not absorb Cognition, Governance, Workforce, Execution, Verification, or Learning.
 
 Terminology ambiguity that changes responsibility or authority must be entered in the conflict register.

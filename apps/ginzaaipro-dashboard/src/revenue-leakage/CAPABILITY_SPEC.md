@@ -88,6 +88,19 @@ The capability should:
 - remain auditable
 - improve through learning
 
+The capability is operationally complete only when it can:
+
+- observe and cite leakage evidence
+- explain probable cause with confidence
+- recommend a corrective action without authorizing it
+- submit material action for Governance
+- hand an approved action to Workforce, Operational Orchestration, or Execution within the approved governance envelope
+- verify completion and outcome from evidence
+- contribute the verified result to Operational Memory and Learning
+- report measured impact
+
+Revenue Leakage does not acquire Governance, Workforce, Orchestration, or Execution authority by satisfying these criteria. It prepares and consumes governed artifacts through those canonical owners.
+
 ---
 
 # Architectural Principles
