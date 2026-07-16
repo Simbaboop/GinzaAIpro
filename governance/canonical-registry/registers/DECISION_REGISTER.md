@@ -1,0 +1,17 @@
+# Decision Register
+
+Schema: `ID | Classification | Source status | Decision | Source | Relationships`
+
+| ID | Classification | Source status | Decision | Source | Relationships |
+|---|---|---|---|---|---|
+| DEC-0001 | Active | Accepted | Capture is the first architectural responsibility and precedes interpretation. | [`docs/architecture/adr/ADR-0001`](../../../docs/architecture/adr/ADR-0001-Capture-First.md) | Absorbs DEC-0003; governs RULE-0001 |
+| DEC-0002 | Active | Accepted | GinzaAIpro uses signal-driven architecture: runtime events are evaluated into operational signals for downstream consumers. | [`ADR-0002`](../../../docs/architecture/adr/ADR-0002-Signal-Driven-Architecture.md) | Governs RULE-0003 |
+| DEC-0003 | Absorbed | Accepted (legacy duplicate) | Capture-first architecture and its initial build consequences. | [`decisions/0001_Capture_First_Architecture.md`](../../../decisions/0001_Capture_First_Architecture.md) | Absorbed by DEC-0001; duplicate identity tracked in CON-0001 |
+| DEC-0004 | Retired | No content/status | Reserved filename for layered operational architecture; no decision exists. | [`ADR-0003`](../../../docs/architecture/adr/ADR-0003-Layered-Operational-Architecture.md) | Empty placeholder; not authoritative |
+| DEC-0005 | Retired | No content/status | Reserved filename for assessment pipeline; no decision exists. | [`ADR-0004`](../../../docs/architecture/adr/ADR-0004-Assessment-Pipeline.md) | Empty placeholder; not authoritative |
+| DEC-0006 | Retired | No content/status | Reserved filename for capability-oriented runtime; no decision exists. | [`ADR-0005`](../../../docs/architecture/adr/ADR-0005-Capability-Oriented-Runtime.md) | Empty placeholder; not authoritative |
+| DEC-0007 | Retired | No content/status | Reserved filename for operational orchestration engine; no decision exists. | [`ADR-0006`](../../../docs/architecture/adr/ADR-0006-Operational-Orchestration-Engine.md) | Empty placeholder; not authoritative |
+| DEC-0008 | Active | Accepted — human Project Canon closure decision, 2026-07-15 | Orchestration may prepare, sequence, simulate, and propose before governance; material execution orchestration requires an explicitly approved governance envelope and then coordinates only the authorized execution plan. | [`CON-0004 resolution history`](CONFLICT_REGISTER.md#resolution-history) | Resolves CON-0004; amends RULE-0004 and RULE-0011 |
+| DEC-0009 | Active | Accepted — human Project Canon closure decision, 2026-07-15 | Human constitutional authority governs the platform. Platform policy has deterministic routine authority only by explicit delegation; reserved human authority and mandatory non-bypass controls constrain it, and emergency override is authorized, scoped, time-bound, justified, and immutably audited. | [`CON-0005 resolution history`](CONFLICT_REGISTER.md#resolution-history) | Resolves CON-0005; amends RULE-0005 and RULE-0009 |
+
+`Retired` on an empty placeholder means only that it has no operative decision; it does not imply a proposal was rejected.

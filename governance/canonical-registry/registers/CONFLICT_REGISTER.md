@@ -1,0 +1,18 @@
+# Conflict Register
+
+Schema: `ID | Status | Issue | Sources | Resolution or decision required`
+
+| ID | Status | Issue | Sources | Resolution or decision required |
+|---|---|---|---|---|
+| CON-0001 | Resolved — duplicate | Two accepted files use ADR-0001 for the capture-first decision. | [`decisions/0001`](../../../decisions/0001_Capture_First_Architecture.md); [`docs ADR-0001`](../../../docs/architecture/adr/ADR-0001-Capture-First.md) | The canonical ADR directory and more general decision text govern; legacy DEC-0003 is absorbed by DEC-0001, while its dated build consequences remain historical evidence. |
+| CON-0002 | Resolved — scope | Lifecycle descriptions contain different numbers and names of stages. | [`SAOP.md`](../../../SAOP.md); [`ARCHITECTURE_PRINCIPLES.md`](../../../docs/architecture/ARCHITECTURE_PRINCIPLES.md); [`INFORMATION_FLOW.md`](../../../docs/architecture/INFORMATION_FLOW.md) | The constitutional sequence is the invariant ordering; the canonical architecture flow is a compatible engineering extension. RULE-0015 records the expanded lifecycle. |
+| CON-0003 | Resolved — scope | Observation Aggregate and Operational Knowledge Graph both use “canonical” for an operational model. | [`06_Observation_Aggregate.md`](../../../architecture/06_Observation_Aggregate.md); [`11_Operational_Knowledge_Graph.md`](../../../docs/11_Operational_Knowledge_Graph.md) | Observation is canonical for a captured operational aggregate; OKG is canonical for graph representation and lineage. Both remain authoritative in distinct scopes. |
+| CON-0004 | Resolved — scope | Layer hierarchy places Governance above Orchestration, while information flow places Orchestration before Governance; dependency direction and processing sequence can be read as contradictory ordering. | [`LAYERED_ARCHITECTURE.md`](../../../docs/architecture/LAYERED_ARCHITECTURE.md); [`DEPENDENCY_RULES.md`](../../../docs/architecture/DEPENDENCY_RULES.md); [`INFORMATION_FLOW.md`](../../../docs/architecture/INFORMATION_FLOW.md) | Orchestration may prepare, sequence, simulate, and propose work before Governance. Material execution orchestration may proceed only inside an explicitly approved governance envelope; after approval, Orchestration coordinates the authorized execution plan. Recorded by DEC-0008 and RULE-0004/RULE-0011. |
+| CON-0005 | Resolved — authority | “Core authority remains within the platform” and “Human authority remains responsible for governed actions” leave the boundary between platform enforcement and human decision authority underspecified. | [`SAOP.md`](../../../SAOP.md); [`ARCHITECTURE_PRINCIPLES.md`](../../../docs/architecture/ARCHITECTURE_PRINCIPLES.md) | Human constitutional authority governs the platform. Deterministic platform policy governs routine execution only under explicitly delegated approved policy. Humans retain constitutional purpose, policy-change, critical-exception, irreversible-action, and risk-limit authority, but cannot bypass mandatory controls. Emergency override is authorized, scoped, time-bound, justified, and immutably audited. Recorded by DEC-0009 and RULE-0005/RULE-0009. |
+
+## Resolution history
+
+| Conflict | Date | Prior status | Resolution evidence |
+|---|---|---|---|
+| CON-0004 | 2026-07-15 | Open — human decision required; pending behavior prohibited Orchestration from governing or bypassing Governance. | Human Project Canon closure decision, recorded as DEC-0008. |
+| CON-0005 | 2026-07-15 | Open — human decision required; pending behavior retained human oversight and prohibited autonomous bypass authority. | Human Project Canon closure decision, recorded as DEC-0009. |
