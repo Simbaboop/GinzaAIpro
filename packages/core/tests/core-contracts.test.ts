@@ -14,6 +14,7 @@ import {
 import { describe, expect, it } from "vitest";
 import {
   Diagnostic,
+  CaptureInput,
   EngineContext,
   EngineResult,
   Explanation,
@@ -180,6 +181,33 @@ describe("shared core contracts", () => {
 });
 
 describe("specialized engine contracts", () => {
+  it("constructs an immutable canonical capture input", () => {
+    const organizationId = id("org_001");
+    const subjectId = id("customer_001");
+    const input = new CaptureInput(
+      organizationId,
+      "operational",
+      " dispatch ",
+      " job_001 ",
+      "2026-07-18T11:00:00.000Z",
+      "scheduled",
+      "dispatch-job-001",
+      subjectId,
+      confidence,
+    );
+
+    expect(input.organizationId).toBe(organizationId);
+    expect(input.category).toBe("operational");
+    expect(input.source).toBe(" dispatch ");
+    expect(input.sourceReference).toBe(" job_001 ");
+    expect(input.occurredAt).toBe("2026-07-18T11:00:00.000Z");
+    expect(input.value).toBe("scheduled");
+    expect(input.deterministicIdentityMaterial).toBe("dispatch-job-001");
+    expect(input.subjectId).toBe(subjectId);
+    expect(input.confidence).toBe(confidence);
+    expect(Object.isFrozen(input)).toBe(true);
+  });
+
   it("retains intelligence and priorities without mutating source collections", () => {
     const organizationId = id("org_001");
     const intelligence = new Intelligence(
@@ -254,9 +282,18 @@ describe("specialized engine contracts", () => {
     const verification = {} as Verification;
     const outcome = {} as Outcome;
     const learning = {} as LearningRecord;
+    const captureInput = new CaptureInput(
+      id("org_001"),
+      "operational",
+      "dispatch",
+      "job_001",
+      "2026-07-18T11:00:00.000Z",
+      "scheduled",
+      "dispatch-job-001",
+    );
 
     const capture: CaptureEngine = {
-      execute: async (input) => successful(input),
+      execute: async () => successful(signal),
     };
     const validation: ValidationEngine = {
       execute: async () => successful(evidence),
@@ -291,6 +328,7 @@ describe("specialized engine contracts", () => {
       learningEngine,
       signal,
       outcome,
-    ]).toHaveLength(10);
+      captureInput,
+    ]).toHaveLength(11);
   });
 });
