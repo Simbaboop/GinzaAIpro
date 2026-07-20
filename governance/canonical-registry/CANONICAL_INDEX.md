@@ -1,6 +1,6 @@
 # Canonical Index
 
-Last reconciled and closed: 2026-07-15
+Last reconciled and closed: 2026-07-20
 
 ## Authority and process
 
@@ -25,6 +25,19 @@ Last reconciled and closed: 2026-07-15
 3. Canonical architecture suite: [`docs/architecture/README.md`](../../docs/architecture/README.md)
 4. Canonical specifications: [`docs/11_Operational_Knowledge_Graph.md`](../../docs/11_Operational_Knowledge_Graph.md), capability specifications explicitly marked canonical
 5. Supporting architecture, product specifications, and implementation-local README contracts as inventoried in the reconciliation report
+
+## Capability 002 governance chain
+
+- [`RCO-0002`](../../architecture/rco/RCO-0002-Capability-002-Evidence-Semantics-Reconciliation.md) — repository reconciliation and retained-SAS disposition
+- [`SAS-0002A`](../../architecture/sas/SAS-0002A-Evidence-Semantics-Layer.md) — retained Evidence Semantics specification
+- [`SAS-0002A-ADD-001`](../../architecture/sas/SAS-0002A-ADD-001-Resolution-Accountability.md) — component resolution accountability
+- [`SAS-0002B`](../../architecture/sas/SAS-0002B-Deterministic-Evidence-Semantic-Resolution.md) — deterministic resolver specification
+- [`FEA-0002`](../../architecture/fea/FEA-0002-Evidence-Semantics-Feasibility.md) — `IMPLEMENTABLE` feasibility verdict
+- [`IRG-0002-R1`](../../architecture/irg/IRG-0002-R1-Evidence-Semantics-Implementation-Readiness.md) — `PASS` implementation-readiness gate
+- [`E2-001-R2`](../../architecture/execution/E2-001-R2-Evidence-Semantics-Execution-Authorization.md) — `AUTHORIZED FOR IMPLEMENTATION`
+
+This chain governs Capability 002 only. It preserves the released Capability
+001 contract and tag.
 
 ## Conflict status
 

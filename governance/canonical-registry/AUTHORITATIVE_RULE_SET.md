@@ -1,6 +1,6 @@
 # Currently Authoritative Rule Set
 
-Last reconciled: 2026-07-15. This is a concise publication of `Active` and `Extended` entries in the Rule Register. Source text governs if a summary loses detail.
+Last reconciled: 2026-07-20. This is a concise publication of `Active` and `Extended` entries in the Rule Register. Source text governs if a summary loses detail.
 
 ## Constitutional rules
 
@@ -26,6 +26,8 @@ Last reconciled: 2026-07-15. This is a concise publication of `Active` and `Exte
 17. New functionality extends existing layers and patterns before adding top-level subsystems or architecture-changing patterns; exceptions require explicit justification and an accepted ADR.
 18. Use descriptive subsystem and responsibility names; avoid unclear acronyms in code and folders.
 19. AI outputs inform governed reasoning and do not independently govern or execute.
+20. Evidence Semantics preserves released Evidence component predicates and canonical values exactly and introduces no business interpretation, ontology, classification, diagnosis, or action.
+21. Every evaluated Evidence component has exactly one deterministic resolution record with complete released-identity lineage; silent omission and inferred references are prohibited.
 
 ## Canonical lifecycle
 

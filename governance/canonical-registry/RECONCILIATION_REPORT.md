@@ -1,14 +1,17 @@
 # Project Canon Reconciliation Report
 
-Date: 2026-07-15
+Date: 2026-07-20
 
 ## Outcome
 
-Project Canon established and closed one traceable registry. After the approved scaffold and naming migration, the registry contains 25 registered rules, 10 decision entries, 8 deprecation/history entries, 17 terminology entries, 5 resolved conflicts, and no open conflicts.
+Project Canon established and closed one traceable registry. After Capability
+002 governance materialization, the registry contains 27 registered rules,
+11 decision entries, 8 deprecation/history entries, 17 terminology entries,
+5 resolved conflicts, and no open conflicts.
 
 ## Classification summary
 
-- **Active:** constitutional constraints, accepted ADR-0001/0002, accepted closure decisions DEC-0008/0009, canonical architecture rules, canonical specifications in their stated scopes, and compatible implementation-local contracts.
+- **Active:** constitutional constraints, accepted ADR-0001/0002, accepted closure decisions DEC-0008/0009, Capability 002 decision DEC-0011, canonical architecture rules, canonical specifications in their stated scopes, and compatible implementation-local contracts.
 - **Extended:** the capture-first rule, canonical lifecycle, Observation/OKG scope, and separate Execution model.
 - **Amended:** governance/orchestration phase boundaries and the platform/human authority boundary, through DEC-0008 and DEC-0009.
 - **Absorbed:** legacy `decisions/0001_Capture_First_Architecture.md` into the canonical ADR-0001 while preserving its dated consequences.
@@ -40,6 +43,11 @@ Project Canon established and closed one traceable registry. After the approved 
 | `architecture/04_Execution_Architecture.md` | Extended | Execution boundary extended by tracking/aggregate specs |
 | `architecture/05_Observation_Data_Model.md` | Extended | Observation schema extended by aggregate/event/graph specifications |
 | `architecture/06_Observation_Aggregate.md` | Extended | Canonical Observation aggregate retained in scoped relationship to OKG |
+| `architecture/rco/RCO-0002-*` | Active | Reconciles retained SAS-0002A with released Capability 001 and bounds Capability 002 |
+| `architecture/sas/SAS-0002A-*`, `SAS-0002B-*` | Active (Capability 002 scope) | Retained Evidence Semantics doctrine, resolution accountability, and deterministic resolver contract |
+| `architecture/fea/FEA-0002-*` | Active (feasibility evidence) | Records `IMPLEMENTABLE` against the released repository |
+| `architecture/irg/IRG-0002-R1-*` | Active (readiness authority) | Records `PASS`, fixed vectors, boundaries, tests, and stop conditions |
+| `architecture/execution/E2-001-R2-*` | Active (execution authorization) | Authorizes bounded Capability 002 implementation without release certification |
 
 ## Source inventory — product specifications
 
