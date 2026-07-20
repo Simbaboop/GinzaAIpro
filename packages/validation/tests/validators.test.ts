@@ -16,6 +16,7 @@ import {
   ConsistencyValidator,
   IdentityValidator,
   IntegrityValidator,
+  OrganizationValidator,
   QualificationValidator,
   runValidationPipeline,
   type Validator,
@@ -67,6 +68,29 @@ describe("deterministic validators", () => {
     ]);
   });
 
+  it("reports Organization mismatch after identity", () => {
+    const differentContext = new EngineContext(
+      new Identifier("org_002"),
+      new Identifier("cor_001"),
+      context.executionTime,
+    );
+    const results = runValidationPipeline(
+      [
+        new IdentityValidator(),
+        new OrganizationValidator(),
+        new IntegrityValidator(),
+      ],
+      signal(),
+      differentContext,
+    );
+
+    expect(results).toHaveLength(2);
+    expect(results[0]?.passed).toBe(true);
+    expect(results[1]?.diagnostics[0]?.code).toBe(
+      "EVIDENCE_ORGANIZATION_MISMATCH",
+    );
+  });
+
   it("reports integrity failure for a non-finite numeric value", () => {
     const result = new IntegrityValidator().validate(
       signal(Number.NaN),
@@ -116,11 +140,40 @@ describe("deterministic validators", () => {
     const result = new QualificationValidator().validate(
       signal(42, "unvalidated"),
       context,
-      [pass(), pass(), pass(), pass()],
+      [pass(), pass(), pass(), pass(), pass()],
     );
 
     expect(result.passed).toBe(false);
     expect(result.diagnostics[0]?.code).toBe("QUALIFICATION_FAILED");
+  });
+
+  it("accepts five successful prerequisites in the six-gate sequence", () => {
+    const result = new QualificationValidator().validate(
+      signal(),
+      context,
+      [pass(), pass(), pass(), pass(), pass()],
+    );
+
+    expect(result.passed).toBe(true);
+    expect(result.diagnostics).toEqual([]);
+  });
+
+  it("runs the complete six-gate sequence in normative order", () => {
+    const results = runValidationPipeline(
+      [
+        new IdentityValidator(),
+        new OrganizationValidator(),
+        new IntegrityValidator(),
+        new CompletenessValidator(),
+        new ConsistencyValidator(),
+        new QualificationValidator(),
+      ],
+      signal(),
+      context,
+    );
+
+    expect(results).toHaveLength(6);
+    expect(results.every(({ passed }) => passed)).toBe(true);
   });
 
   it("runs gates in order and stops after the first failure", () => {

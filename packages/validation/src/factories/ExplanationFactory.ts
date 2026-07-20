@@ -3,6 +3,7 @@ import {
   Percentage,
   type BusinessSignal,
   type Evidence,
+  type EvidenceConstructionRuleReference,
 } from "@ginzaaipro/domain";
 import type { ValidationDiagnosticCode } from "../diagnostics/index.js";
 
@@ -30,13 +31,36 @@ export class ExplanationFactory {
     );
   }
 
-  createSuccess(signal: BusinessSignal, evidence: Evidence): Explanation {
+  createConstructionSuccess(
+    signal: BusinessSignal,
+    evidence: Evidence,
+    rule: EvidenceConstructionRuleReference,
+  ): Explanation {
+    const componentIds = evidence.components
+      .map(({ id }) => id.value)
+      .join(", ");
+    const signalIds = evidence.signalIds
+      .map(({ value }) => value)
+      .join(", ");
     return new Explanation(
       [evidence.id],
       [],
       [],
       signal.confidence,
-      "Signal qualified after passing all deterministic validation gates.",
+      `Signal qualified under VALIDATION_EVIDENCE_CONSTRUCTION@1.0.0 using ${rule.id}@${rule.version}; Evidence ${evidence.id.value} contains canonical components [${componentIds}] with signal provenance [${signalIds}]. Its statement was derived from canonically ordered component data. No semantic extraction, semantic confidence, diagnosis, priority, or action was introduced.`,
+    );
+  }
+
+  createConstructionFailure(
+    signal: BusinessSignal,
+    code: ValidationDiagnosticCode,
+  ): Explanation {
+    return new Explanation(
+      [],
+      [],
+      [],
+      this.confidenceOf(signal),
+      `Evidence construction failed at ${code}; no Evidence was created.`,
     );
   }
 

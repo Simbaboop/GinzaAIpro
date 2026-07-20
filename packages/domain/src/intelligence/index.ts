@@ -1,6 +1,7 @@
 export * from "./Action.js";
 export * from "./BusinessSignal.js";
 export * from "./Evidence.js";
+export * from "./EvidenceComponent.js";
 export * from "./ExecutionPlan.js";
 export * from "./Intelligence.js";
 export * from "./LearningRecord.js";

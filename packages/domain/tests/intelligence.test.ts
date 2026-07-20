@@ -3,6 +3,10 @@ import {
   Action,
   BusinessSignal,
   Evidence,
+  EvidenceComponent,
+  EvidenceComponentProvenance,
+  EvidenceConstructionRuleReference,
+  EvidenceRelation,
   ExecutionPlan,
   Identifier,
   Intelligence,
@@ -19,6 +23,29 @@ const id = (value: string): Identifier => new Identifier(value);
 const score = (basisPoints = 8_000): Percentage =>
   Percentage.fromBasisPoints(basisPoints);
 const timestamp = "2026-07-18T12:00:00.000Z";
+const evidenceComponent = (
+  componentId: string,
+  signalId: Identifier,
+  value = "validated fact",
+): EvidenceComponent =>
+  new EvidenceComponent(
+    id(componentId),
+    undefined,
+    new EvidenceRelation("ginzaaipro.business-signal", "value"),
+    { kind: "text", value },
+    [],
+    [
+      new EvidenceComponentProvenance(
+        signalId,
+        "domain-test",
+        "value",
+      ),
+    ],
+    new EvidenceConstructionRuleReference(
+      "VAL-EVIDENCE-TEXT-001",
+      "1.0.0",
+    ),
+  );
 
 describe("canonical intelligence lifecycle", () => {
   it("constructs immutable, identifier-linked contracts", () => {
@@ -44,7 +71,13 @@ describe("canonical intelligence lifecycle", () => {
       signal.validationStatus,
       "Source record reconciliation",
       score(9_000),
-      "Travel time exceeded the expected range.",
+      [
+        evidenceComponent(
+          "evc_001",
+          signal.id,
+          "Travel time exceeded the expected range.",
+        ),
+      ],
       score(),
       timestamp,
     );
@@ -242,7 +275,13 @@ describe("canonical intelligence lifecycle", () => {
         status,
         "Reconciliation",
         score(),
-        "Invoice remained unpaid.",
+        [
+          evidenceComponent(
+            "evc_001",
+            signalIds[0] ?? id("sig_001"),
+            "Invoice remained unpaid.",
+          ),
+        ],
         score(),
         timestamp,
       );

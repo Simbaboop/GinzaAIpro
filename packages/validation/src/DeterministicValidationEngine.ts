@@ -5,6 +5,7 @@ import {
 } from "@ginzaaipro/core";
 import type { BusinessSignal, Evidence } from "@ginzaaipro/domain";
 import {
+  DiagnosticFactory,
   EvidenceFactory,
   ExplanationFactory,
 } from "./factories/index.js";
@@ -13,6 +14,7 @@ import {
   ConsistencyValidator,
   IdentityValidator,
   IntegrityValidator,
+  OrganizationValidator,
   QualificationValidator,
   runValidationPipeline,
   type Validator,
@@ -21,11 +23,13 @@ import {
 export class DeterministicValidationEngine implements ValidationEngine {
   readonly #validators: readonly Validator[];
   readonly #evidenceFactory: EvidenceFactory;
+  readonly #diagnostics = new DiagnosticFactory();
   readonly #explanations = new ExplanationFactory();
 
   constructor(evidenceFactory: EvidenceFactory = new EvidenceFactory()) {
     this.#validators = Object.freeze([
       new IdentityValidator(),
+      new OrganizationValidator(),
       new IntegrityValidator(),
       new CompletenessValidator(),
       new ConsistencyValidator(),
@@ -61,12 +65,29 @@ export class DeterministicValidationEngine implements ValidationEngine {
       );
     }
 
-    const evidence = this.#evidenceFactory.create(signal, context);
+    const construction = await this.#evidenceFactory.create(signal, context);
+    if (!construction.success) {
+      return new EngineResult<Evidence>(
+        false,
+        undefined,
+        [this.#diagnostics.createFailure(construction.code)],
+        this.#explanations.createConstructionFailure(
+          signal,
+          construction.code,
+        ),
+        durationMs,
+      );
+    }
+
     return new EngineResult(
       true,
-      evidence,
-      [],
-      this.#explanations.createSuccess(signal, evidence),
+      construction.evidence,
+      [this.#diagnostics.createSuccess()],
+      this.#explanations.createConstructionSuccess(
+        signal,
+        construction.evidence,
+        construction.rule,
+      ),
       durationMs,
     );
   }

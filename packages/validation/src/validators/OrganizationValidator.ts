@@ -1,5 +1,5 @@
 import type { EngineContext } from "@ginzaaipro/core";
-import type { BusinessSignal } from "@ginzaaipro/domain";
+import { Identifier, type BusinessSignal } from "@ginzaaipro/domain";
 import { ValidationDiagnosticCodes } from "../diagnostics/index.js";
 import {
   DiagnosticFactory,
@@ -8,24 +8,27 @@ import {
 import { ValidationResult } from "../models/index.js";
 import type { Validator } from "./Validator.js";
 
-export class QualificationValidator implements Validator {
-  readonly gate = "Qualification";
+export class OrganizationValidator implements Validator {
+  readonly gate = "Organization";
   readonly #diagnostics = new DiagnosticFactory();
   readonly #explanations = new ExplanationFactory();
 
   validate(
     signal: BusinessSignal,
-    _context: EngineContext,
+    context: EngineContext,
     prerequisiteResults: readonly ValidationResult[],
   ): ValidationResult {
     const prerequisitesPassed =
-      prerequisiteResults.length === 5 &&
+      prerequisiteResults.length === 1 &&
       prerequisiteResults.every((result) => result.passed);
     const valid =
-      prerequisitesPassed && signal.validationStatus === "valid";
+      prerequisitesPassed &&
+      signal.organizationId instanceof Identifier &&
+      context.organizationId instanceof Identifier &&
+      signal.organizationId.equals(context.organizationId);
 
     if (!valid) {
-      const code = ValidationDiagnosticCodes.QualificationFailed;
+      const code = ValidationDiagnosticCodes.EvidenceOrganizationMismatch;
       return new ValidationResult(
         false,
         [this.#diagnostics.createFailure(code)],
