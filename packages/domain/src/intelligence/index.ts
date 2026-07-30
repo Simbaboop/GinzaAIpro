@@ -10,4 +10,3 @@ export * from "./Outcome.js";
 export * from "./PriorityProfile.js";
 export * from "./Recommendation.js";
 export * from "./RuntimeExecutionPlan.js";
-export * from "./Verification.js";

@@ -7,6 +7,7 @@ import {
   type Evidence,
   type RuntimeExecutionPlan,
   type LearningRecord,
+  type ObservedOutcome,
   type Outcome,
   type Recommendation,
   type Verification,
@@ -19,7 +20,6 @@ import {
   EngineResult,
   Explanation,
   RecommendationInput,
-  VerificationInput,
   type CaptureEngine,
   type ExecutionEngine,
   type IntelligenceEngine,
@@ -28,6 +28,7 @@ import {
   type RecommendationEngine,
   type ValidationEngine,
   type VerificationEngine,
+  type VerificationRequest,
 } from "../src/index.js";
 
 const id = (value: string): Identifier => new Identifier(value);
@@ -249,24 +250,29 @@ describe("specialized engine contracts", () => {
     expect(Object.isFrozen(input)).toBe(true);
   });
 
-  it("models verification as a request that precedes the result", () => {
-    const evidenceIds = [id("evd_001")];
-    const input = new VerificationInput(
-      id("org_001"),
-      "action",
-      id("act_001"),
-      "Configuration audit",
-      evidenceIds,
-      id("emp_001"),
-      "Confirm the completed configuration.",
-    );
-    evidenceIds.push(id("evd_002"));
+  it("uses the canonical Domain Verification construction contract", () => {
+    const observedOutcome = {} as ObservedOutcome;
+    const evidence = {} as Evidence;
 
-    expect(input.evidenceIds).toHaveLength(1);
-    expect(input).not.toHaveProperty("result");
-    expect(input).not.toHaveProperty("verifiedAt");
-    expect(Object.isFrozen(input.evidenceIds)).toBe(true);
-    expect(Object.isFrozen(input)).toBe(true);
+    const request: VerificationRequest = {
+      observedOutcome,
+      evidence: [evidence],
+      method: "Configuration audit",
+      judgment: "confirmed",
+      verifiedAt: "2026-07-18T12:00:00.000Z",
+      limitations: [
+        "The audit confirms configuration, not business impact.",
+      ],
+      verifierId: id("emp_001"),
+      notes: "Confirm the recorded outcome.",
+    };
+
+    expect(request.observedOutcome).toBe(observedOutcome);
+    expect(request.evidence).toEqual([evidence]);
+    expect(request.judgment).toBe("confirmed");
+    expect(request).not.toHaveProperty("result");
+    expect(request).not.toHaveProperty("subjectType");
+    expect(request).not.toHaveProperty("subjectId");
   });
 
   it("supports every specialized Engine interface", () => {

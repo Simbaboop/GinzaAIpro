@@ -17,7 +17,6 @@ import {
   Recommendation,
   RuntimeExecutionPlan,
   TimePeriod,
-  Verification,
 } from "../src/index.js";
 
 const id = (value: string): Identifier => new Identifier(value);
@@ -172,19 +171,6 @@ describe("canonical intelligence lifecycle", () => {
       "2026-07-24T12:00:00.000Z",
       [evidence.id],
     );
-    const verification = new Verification(
-      id("ver_001"),
-      organizationId,
-      "action",
-      action.id,
-      "Configuration audit",
-      [evidence.id],
-      "confirmed",
-      timestamp,
-      score(9_500),
-      ["Audit confirms configuration, not business impact."],
-      id("emp_002"),
-    );
     const outcome = new Outcome(
       id("out_001"),
       organizationId,
@@ -226,7 +212,6 @@ describe("canonical intelligence lifecycle", () => {
       recommendation,
       plan,
       action,
-      verification,
       outcome,
       learning,
     ]) {
@@ -238,7 +223,6 @@ describe("canonical intelligence lifecycle", () => {
       recommendation.intelligenceIds,
       plan.actionIds,
       action.evidenceIds,
-      verification.evidenceIds,
       outcome.evidenceIds,
       learning.outcomeIds,
     ]) {
@@ -254,7 +238,6 @@ describe("canonical intelligence lifecycle", () => {
     expect(Object.isFrozen(recommendation.priorityProfileId)).toBe(true);
     expect(plan.recommendationId).toBe(recommendation.id);
     expect(action.executionPlanId).toBe(plan.id);
-    expect(verification.subjectId).toBe(action.id);
     expect(outcome.executionPlanId).toBe(plan.id);
     expect(learning.outcomeIds[0]).toBe(outcome.id);
     expect(learning.capabilityAffected).toBe("Dispatch planning");
@@ -489,20 +472,6 @@ describe("canonical intelligence lifecycle", () => {
     expect(action.status).toBe("completed");
     expect(action.completedAt).toBe(timestamp);
     expect(action).not.toHaveProperty("verification");
-    expect(() =>
-      new Verification(
-        id("ver_001"),
-        id("org_001"),
-        "action",
-        action.id,
-        "Audit",
-        [],
-        "confirmed",
-        timestamp,
-        score(),
-        [],
-      ),
-    ).toThrow("supporting evidence");
   });
 
   it("enforces bounded confidence and valid completion timestamps", () => {
