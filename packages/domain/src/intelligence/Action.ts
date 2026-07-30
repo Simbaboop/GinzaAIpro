@@ -8,7 +8,7 @@ export type ActionStatus =
   | "cancelled";
 
 /**
- * A canonical unit of business execution within an ExecutionPlan.
+ * A canonical unit of business execution within a RuntimeExecutionPlan.
  * Kernel Action remains the runtime execution and audit record.
  */
 export class Action extends Entity {

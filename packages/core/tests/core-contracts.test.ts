@@ -5,7 +5,7 @@ import {
   PriorityProfile,
   type BusinessSignal,
   type Evidence,
-  type ExecutionPlan,
+  type RuntimeExecutionPlan,
   type LearningRecord,
   type Outcome,
   type Recommendation,
@@ -278,7 +278,7 @@ describe("specialized engine contracts", () => {
     const intelligence = {} as Intelligence;
     const priority = {} as PriorityProfile;
     const recommendation = {} as Recommendation;
-    const plan = {} as ExecutionPlan;
+    const plan = {} as RuntimeExecutionPlan;
     const verification = {} as Verification;
     const outcome = {} as Outcome;
     const learning = {} as LearningRecord;

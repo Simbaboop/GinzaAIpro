@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import * as domain from "../src/index.js";
 import {
   Action,
   BusinessSignal,
@@ -7,7 +8,6 @@ import {
   EvidenceComponentProvenance,
   EvidenceConstructionRuleReference,
   EvidenceRelation,
-  ExecutionPlan,
   Identifier,
   Intelligence,
   LearningRecord,
@@ -15,6 +15,7 @@ import {
   Percentage,
   PriorityProfile,
   Recommendation,
+  RuntimeExecutionPlan,
   TimePeriod,
   Verification,
 } from "../src/index.js";
@@ -48,6 +49,38 @@ const evidenceComponent = (
   );
 
 describe("canonical intelligence lifecycle", () => {
+  it("exports the legacy runtime artifact separately from the canonical plan", () => {
+    expect(domain.RuntimeExecutionPlan).toBe(RuntimeExecutionPlan);
+    expect(domain.ExecutionPlan).toBeDefined();
+    expect(domain.ExecutionPlan).not.toBe(RuntimeExecutionPlan);
+  });
+
+  it("preserves identifier-based equality after the semantic rename", () => {
+    const createPlan = (planId: Identifier, objective: string) =>
+      new RuntimeExecutionPlan(
+        planId,
+        id("org_001"),
+        id("rec_001"),
+        objective,
+        [id("act_001")],
+        ["Reduce cycle time."],
+        "planned",
+        ["Compare baseline and pilot periods."],
+      );
+    const first = createPlan(id("plan_equal"), "First objective");
+    const sameIdentity = createPlan(
+      id("plan_equal"),
+      "Different objective",
+    );
+    const differentIdentity = createPlan(
+      id("plan_other"),
+      "First objective",
+    );
+
+    expect(first.equals(sameIdentity)).toBe(true);
+    expect(first.equals(differentIdentity)).toBe(false);
+    expect(Object.isFrozen(first)).toBe(true);
+  });
   it("constructs immutable, identifier-linked contracts", () => {
     const organizationId = id("org_001");
     const signal = new BusinessSignal(
@@ -116,7 +149,7 @@ describe("canonical intelligence lifecycle", () => {
       intelligence.assumptions,
       intelligence.limitations,
     );
-    const plan = new ExecutionPlan(
+    const plan = new RuntimeExecutionPlan(
       id("plan_001"),
       organizationId,
       recommendation.id,
@@ -333,7 +366,7 @@ describe("canonical intelligence lifecycle", () => {
   it("requires executable work and governed success criteria for plans", () => {
     expect(
       () =>
-        new ExecutionPlan(
+        new RuntimeExecutionPlan(
           id("plan_001"),
           id("org_001"),
           id("rec_001"),
