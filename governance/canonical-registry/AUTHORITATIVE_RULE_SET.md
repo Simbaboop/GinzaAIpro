@@ -48,6 +48,11 @@ Last reconciled: 2026-07-31. This is a concise publication of `Active` and `Exte
 36. Release is a separate authorized human governance decision requiring accepted governing artifacts, eligible verification, explicit limitations, and no unresolved blocker; implementation completion, a successful build, or a merged change does not independently establish release.
 37. Acceptance of a Release Record freezes its identified baseline; later correction, extension, breaking change, deprecation, or removal is explicitly classified, governed, verified, and recorded without silently rewriting historical evidence.
 
+## Capability 003 rules
+
+38. Capability 003 consumes only released Semantic Facts and deterministically derives immutable `OperationalCondition` artifacts using released rule sets while preserving stable identity, semantic-fact references, traceability, rule-set version, replayability, and boundary integrity.
+39. `OperationalCondition` is descriptive operational state only and does not calculate leakage, assign priority or severity, generate recommendations, express financial impact, authorize execution, or contain AI reasoning; governed input failure produces no partial canonical output or silent omission.
+
 ## Canonical lifecycle
 
 Reality → Capture → Operational Evidence / Runtime Events → Operational Signals → Operational Memory → Operational Health → Operational Cognition → Operational Orchestration → Governance → Execution → Verification → Learning.

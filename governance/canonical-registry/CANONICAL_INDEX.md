@@ -44,6 +44,15 @@ Last reconciled and closed: 2026-07-31
 This chain governs Capability 002 only. It preserves the released Capability
 001 contract and tag.
 
+## Capability 003 governance chain
+
+- [`ADR-0003`](../adr/ADR-0003-Operational-Conditions.md) — accepted architectural decision introducing `OperationalCondition` as the canonical descriptive-state boundary
+- [`HCES-0003`](../hces/HCES-0003-Operational-Conditions.md) — accepted deterministic Capability 003 contract
+- [`VVR-0003`](../vvr/VVR-0003-Operational-Conditions.md) — accepted verification evidence; 15 focused tests, typecheck, build, and repository integration reported PASS
+
+Capability 003 is verified but not released. No Release Record exists, so neither implementation completion nor VVR acceptance establishes release under CGS-0005.
+
+
 ## Conflict status
 
 No unresolved conflicts remain.

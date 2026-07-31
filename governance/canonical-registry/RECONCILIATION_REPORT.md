@@ -6,12 +6,12 @@ Date: 2026-07-31
 
 Project Canon maintains one traceable registry. After constitutional authority
 reconciliation, publication of Platform Constitution v1.0, and acceptance of the Canonical Governance Standards, the registry contains
-43 registered rules, 12 decision entries, 9 deprecation/history entries,
-18 terminology entries, 6 resolved conflicts, and no open conflicts.
+45 registered rules, 13 decision entries, 9 deprecation/history entries,
+19 terminology entries, 6 resolved conflicts, and no open conflicts.
 
 ## Classification summary
 
-- **Active:** Platform Constitution v1.0; accepted CGS-0001, CGS-0004, and CGS-0005; accepted ADR-0001/0002; accepted decisions DEC-0008/0009/0011/0012; constitutional rules RULE-0028 through RULE-0037; governance-process rules RULE-0038 through RULE-0043; canonical architecture rules; canonical specifications in their stated scopes; and compatible implementation-local contracts.
+- **Active:** Platform Constitution v1.0; accepted CGS-0001, CGS-0004, and CGS-0005; accepted ADR-0001/0002 and Capability 003 ADR-0003; accepted decisions DEC-0008/0009/0011/0012/0013; constitutional rules RULE-0028 through RULE-0037; governance-process rules RULE-0038 through RULE-0043; Capability 003 rules RULE-0044 and RULE-0045; accepted HCES-0003; VVR-0003 as verification evidence only; canonical architecture rules; canonical specifications in their stated scopes; and compatible implementation-local contracts. Capability 003 remains verified but not released because no Release Record exists.
 - **Extended:** the capture-first rule, canonical lifecycle, Observation/OKG scope, and separate Execution model.
 - **Amended:** governance/orchestration phase boundaries and the platform/human authority boundary, through DEC-0008 and DEC-0009.
 - **Absorbed:** legacy `decisions/0001_Capture_First_Architecture.md` into the canonical ADR-0001 while preserving its dated consequences.
@@ -34,6 +34,9 @@ reconciliation, publication of Platform Constitution v1.0, and acceptance of the
 | `decisions/0001_Capture_First_Architecture.md` | Absorbed | Legacy accepted duplicate of ADR-0001; dated implementation consequences retained |
 | `docs/architecture/adr/ADR-0001-Capture-First.md` | Active | Accepted capture-first decision |
 | `docs/architecture/adr/ADR-0002-Signal-Driven-Architecture.md` | Active | Accepted signal-driven decision |
+| `governance/adr/ADR-0003-Operational-Conditions.md` | Active — accepted decision | Introduces `OperationalCondition` as the canonical immutable descriptive-state boundary between released Semantic Facts and Operational Leakage; registered as DEC-0013 |
+| `governance/hces/HCES-0003-Operational-Conditions.md` | Active — accepted Capability 003 specification | Defines released-input admissibility, deterministic derivation, identity, provenance, failure taxonomy, and strict descriptive-only boundaries |
+| `governance/vvr/VVR-0003-Operational-Conditions.md` | Active — verification evidence only | Reports typecheck, build, repository integration, and 15 focused tests PASS; recommends release but does not establish release because no RR exists |
 | `docs/architecture/adr/ADR-0003` through `ADR-0006` | Retired | Empty placeholders, no decisions |
 | `docs/architecture/README.md` | Active | Declares canonical architecture scope and ADR location |
 | `ARCHITECTURE_PRINCIPLES.md` | Active | 15 canonical principles |
@@ -99,11 +102,12 @@ The migrated research is explicitly experimental, non-canonical, non-executable,
 
 - The early Observation-centric architecture is extended by separate Operational Event, Execution Aggregate, and Operational Knowledge Graph models. Links remain through traceability rather than treating newer nouns as deletion of Observation.
 - The short constitutional lifecycle is extended by the canonical architecture lifecycle with Evidence, Signals, Memory, Health, Cognition, Orchestration, Verification, and Learning.
+- Capability 003 introduces `OperationalCondition` as the immutable descriptive-state boundary between released Semantic Facts and downstream Operational Leakage. ADR-0003, HCES-0003, and VVR-0003 are accepted, but the capability remains verified rather than released because no Release Record exists.
 - Implementation-local runtime and capability contracts specialize canonical architecture but do not outrank it.
 
 ## Terminology drift
 
-The terminology register resolves or flags Event vs Operational Event, Event vs Signal, Runtime Health vs Operational Health, Operational Intelligence vs Operational Cognition, Observation vs Evidence vs OKG, Execution fields vs Execution Aggregate, orchestration naming, Organizational Dynamics, Operational Runtime, and the relationship between the Governance Operating System authority layer and its Canonical Governance Standards.
+The terminology register resolves or flags Event vs Operational Event, Event vs Signal, Runtime Health vs Operational Health, Operational Intelligence vs Operational Cognition, Observation vs Evidence vs OKG, Execution fields vs Execution Aggregate, orchestration naming, Organizational Dynamics, Operational Runtime, `OperationalCondition` as descriptive operational state distinct from leakage, priority, recommendations, and execution, and the relationship between the Governance Operating System authority layer and its Canonical Governance Standards.
 
 ## Conflict closure
 
