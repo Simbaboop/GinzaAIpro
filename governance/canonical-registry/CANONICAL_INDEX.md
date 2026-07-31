@@ -7,6 +7,10 @@ Last reconciled and closed: 2026-07-31
 - [`AUTHORITY_ORDER.md`](AUTHORITY_ORDER.md) — source precedence and tie-breakers
 - [`CHANGE_PROTOCOL.md`](CHANGE_PROTOCOL.md) — evidence, review, identifiers, classifications, and history
 - [`CONFLICT_RESOLUTION.md`](CONFLICT_RESOLUTION.md) — deterministic and human resolution paths
+- [`Canonical Governance Standards`](../standards/README.md) — accepted Governance Operating System controls; scoped by TERM-0018
+  - [`CGS-0001`](../standards/CGS-0001-Capability-Governance-Standard.md) — capability lifecycle and implementation authorization
+  - [`CGS-0004`](../standards/CGS-0004-Verification-Validation-Standard.md) — verification evidence and disposition
+  - [`CGS-0005`](../standards/CGS-0005-Release-Governance-Standard.md) — release authorization and baseline governance
 
 ## Published canon
 
@@ -21,10 +25,11 @@ Last reconciled and closed: 2026-07-31
 ## Primary authoritative sources
 
 1. [`Platform Constitution v1.0`](../constitution/PLATFORM-CONSTITUTION.md) — highest constitutional authority; [`SAOP.md`](../../SAOP.md) is preserved as historical constitutional source material under DEC-0012 and DEP-0009
-2. Accepted ADRs: [`ADR-0001`](../../docs/architecture/adr/ADR-0001-Capture-First.md), [`ADR-0002`](../../docs/architecture/adr/ADR-0002-Signal-Driven-Architecture.md)
-3. Canonical architecture suite: [`docs/architecture/README.md`](../../docs/architecture/README.md)
-4. Canonical specifications: [`docs/11_Operational_Knowledge_Graph.md`](../../docs/11_Operational_Knowledge_Graph.md), capability specifications explicitly marked canonical
-5. Supporting architecture, product specifications, and implementation-local README contracts as inventoried in the reconciliation report
+2. Accepted Canonical Governance Standards: [`CGS README`](../standards/README.md), [`CGS-0001`](../standards/CGS-0001-Capability-Governance-Standard.md), [`CGS-0004`](../standards/CGS-0004-Verification-Validation-Standard.md), and [`CGS-0005`](../standards/CGS-0005-Release-Governance-Standard.md)
+3. Accepted ADRs: [`ADR-0001`](../../docs/architecture/adr/ADR-0001-Capture-First.md), [`ADR-0002`](../../docs/architecture/adr/ADR-0002-Signal-Driven-Architecture.md)
+4. Canonical architecture suite: [`docs/architecture/README.md`](../../docs/architecture/README.md)
+5. Canonical specifications: [`docs/11_Operational_Knowledge_Graph.md`](../../docs/11_Operational_Knowledge_Graph.md), capability specifications explicitly marked canonical
+6. Supporting architecture, product specifications, and implementation-local README contracts as inventoried in the reconciliation report
 
 ## Capability 002 governance chain
 

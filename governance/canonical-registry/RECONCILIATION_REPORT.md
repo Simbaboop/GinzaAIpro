@@ -5,13 +5,13 @@ Date: 2026-07-31
 ## Outcome
 
 Project Canon maintains one traceable registry. After constitutional authority
-reconciliation and publication of Platform Constitution v1.0, the registry contains
-37 registered rules, 12 decision entries, 9 deprecation/history entries,
-17 terminology entries, 6 resolved conflicts, and no open conflicts.
+reconciliation, publication of Platform Constitution v1.0, and acceptance of the Canonical Governance Standards, the registry contains
+43 registered rules, 12 decision entries, 9 deprecation/history entries,
+18 terminology entries, 6 resolved conflicts, and no open conflicts.
 
 ## Classification summary
 
-- **Active:** Platform Constitution v1.0, accepted ADR-0001/0002, accepted decisions DEC-0008/0009/0011/0012, constitutional rules RULE-0028 through RULE-0037, canonical architecture rules, canonical specifications in their stated scopes, and compatible implementation-local contracts.
+- **Active:** Platform Constitution v1.0; accepted CGS-0001, CGS-0004, and CGS-0005; accepted ADR-0001/0002; accepted decisions DEC-0008/0009/0011/0012; constitutional rules RULE-0028 through RULE-0037; governance-process rules RULE-0038 through RULE-0043; canonical architecture rules; canonical specifications in their stated scopes; and compatible implementation-local contracts.
 - **Extended:** the capture-first rule, canonical lifecycle, Observation/OKG scope, and separate Execution model.
 - **Amended:** governance/orchestration phase boundaries and the platform/human authority boundary, through DEC-0008 and DEC-0009.
 - **Absorbed:** legacy `decisions/0001_Capture_First_Architecture.md` into the canonical ADR-0001 while preserving its dated consequences.
@@ -26,6 +26,10 @@ reconciliation and publication of Platform Constitution v1.0, the registry conta
 |---|---|---|
 | `governance/constitution/PLATFORM-CONSTITUTION.md` | Active — highest authority | Ratified Platform Constitution v1.0; permanent mission, principles, invariants, governance hierarchy, evolution doctrine, AI doctrine, and amendment process |
 | `SAOP.md` | Superseded / preserved | Historical constitutional source material; compatible principles remain effective only where incorporated into or consistent with Platform Constitution v1.0 under DEC-0012 and DEP-0009 |
+| `governance/standards/README.md` | Active — Governance Operating System scope | Defines CGS purpose, authority boundaries, versioning, ownership, and relationship to ADR, HCES, VVR, and RR artifacts |
+| `governance/standards/CGS-0001-Capability-Governance-Standard.md` | Active | Mandatory capability lifecycle, explicit implementation authorization, scoped implementation, and governed evolution |
+| `governance/standards/CGS-0004-Verification-Validation-Standard.md` | Active | Reproducible verification evidence, repository-integrity review, and PASS / CONDITIONAL PASS / FAIL disposition criteria |
+| `governance/standards/CGS-0005-Release-Governance-Standard.md` | Active | Human-accountable release authorization, release states, baseline freeze, and governed post-release change |
 | `ROADMAP.md` | Active (planning scope) | Build sequencing; not architecture authority |
 | `decisions/0001_Capture_First_Architecture.md` | Absorbed | Legacy accepted duplicate of ADR-0001; dated implementation consequences retained |
 | `docs/architecture/adr/ADR-0001-Capture-First.md` | Active | Accepted capture-first decision |
@@ -99,7 +103,7 @@ The migrated research is explicitly experimental, non-canonical, non-executable,
 
 ## Terminology drift
 
-The terminology register resolves or flags Event vs Operational Event, Event vs Signal, Runtime Health vs Operational Health, Operational Intelligence vs Operational Cognition, Observation vs Evidence vs OKG, Execution fields vs Execution Aggregate, orchestration naming, Organizational Dynamics, and Operational Runtime.
+The terminology register resolves or flags Event vs Operational Event, Event vs Signal, Runtime Health vs Operational Health, Operational Intelligence vs Operational Cognition, Observation vs Evidence vs OKG, Execution fields vs Execution Aggregate, orchestration naming, Organizational Dynamics, Operational Runtime, and the relationship between the Governance Operating System authority layer and its Canonical Governance Standards.
 
 ## Conflict closure
 

@@ -39,6 +39,15 @@ Last reconciled: 2026-07-31. This is a concise publication of `Active` and `Exte
 30. Evidence Semantics preserves released Evidence component predicates and canonical values exactly and introduces no business interpretation, ontology, classification, diagnosis, or action.
 31. Every evaluated Evidence component has exactly one deterministic resolution record with complete released-identity lineage; silent omission and inferred references are prohibited.
 
+## Governance process rules
+
+32. Every new capability and every material evolution of a released capability follows the governed lifecycle: discovery when needed, architectural decision when required, accepted specification, explicit authorization, scoped implementation, verification and validation, release, and governed evolution.
+33. Implementation requires explicit accepted status and authorization identifying allowed scope and protected artifacts; draft, proposed, discovery, or superseded artifacts, roadmap position, existing code, and capability numbering do not authorize implementation.
+34. Verification and validation are evidence-based, reproducible, scoped, and independent of desired release outcomes; executed checks, inferred conclusions, limitations, excluded phases, and repository-scope changes are reported accurately, and an unexecuted check is not a pass.
+35. Every verification record selects exactly one disposition: PASS only after complete required conformance; CONDITIONAL PASS only for an explicit bounded non-defect limitation with a closure condition; or FAIL when requirements, boundaries, integrity, authorization, or required evidence do not conform.
+36. Release is a separate authorized human governance decision requiring accepted governing artifacts, eligible verification, explicit limitations, and no unresolved blocker; implementation completion, a successful build, or a merged change does not independently establish release.
+37. Acceptance of a Release Record freezes its identified baseline; later correction, extension, breaking change, deprecation, or removal is explicitly classified, governed, verified, and recorded without silently rewriting historical evidence.
+
 ## Canonical lifecycle
 
 Reality → Capture → Operational Evidence / Runtime Events → Operational Signals → Operational Memory → Operational Health → Operational Cognition → Operational Orchestration → Governance → Execution → Verification → Learning.
