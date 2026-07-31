@@ -6,7 +6,7 @@ This document defines how Project Canon determines which repository evidence gov
 
 ## Order of authority
 
-1. **Constitutional constraints** — `SAOP.md`, including its non-negotiable rules.
+1. **Platform Constitution** — `governance/constitution/PLATFORM-CONSTITUTION.md` v1.0 is the highest platform authority. `SAOP.md` v0.1 is preserved as historical constitutional source material and remains effective only where incorporated into or consistent with Platform Constitution v1.0, as recorded by DEC-0012.
 2. **Accepted decisions** — non-empty ADRs explicitly marked `Accepted` in `docs/architecture/adr/`, plus explicit human-approved canonical decisions recorded through `CHANGE_PROTOCOL.md` with durable resolution evidence.
 3. **Explicit canonical architecture documents** — documents marked `Canonical` in `docs/architecture/`.
 4. **Explicit canonical specifications** — versioned specifications or capability specifications explicitly marked canonical.

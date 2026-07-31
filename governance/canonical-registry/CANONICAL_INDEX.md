@@ -1,6 +1,6 @@
 # Canonical Index
 
-Last reconciled and closed: 2026-07-20
+Last reconciled and closed: 2026-07-31
 
 ## Authority and process
 
@@ -20,7 +20,7 @@ Last reconciled and closed: 2026-07-20
 
 ## Primary authoritative sources
 
-1. [`SAOP.md`](../../SAOP.md) — constitutional constraints
+1. [`Platform Constitution v1.0`](../constitution/PLATFORM-CONSTITUTION.md) — highest constitutional authority; [`SAOP.md`](../../SAOP.md) is preserved as historical constitutional source material under DEC-0012 and DEP-0009
 2. Accepted ADRs: [`ADR-0001`](../../docs/architecture/adr/ADR-0001-Capture-First.md), [`ADR-0002`](../../docs/architecture/adr/ADR-0002-Signal-Driven-Architecture.md)
 3. Canonical architecture suite: [`docs/architecture/README.md`](../../docs/architecture/README.md)
 4. Canonical specifications: [`docs/11_Operational_Knowledge_Graph.md`](../../docs/11_Operational_Knowledge_Graph.md), capability specifications explicitly marked canonical
@@ -45,6 +45,7 @@ No unresolved conflicts remain.
 
 - `CON-0004` was resolved by DEC-0008: Orchestration may plan and propose before Governance and coordinates material execution only within an approved governance envelope.
 - `CON-0005` was resolved by DEC-0009: human constitutional authority governs the platform; deterministic platform policy exercises only explicitly delegated routine authority under mandatory controls.
+- `CON-0006` was resolved by DEC-0012: Platform Constitution v1.0 supersedes SAOP.md v0.1 as the highest constitutional authority while preserving SAOP.md as historical source material.
 
 Resolution history remains in [`CONFLICT_REGISTER.md`](registers/CONFLICT_REGISTER.md#resolution-history).
 

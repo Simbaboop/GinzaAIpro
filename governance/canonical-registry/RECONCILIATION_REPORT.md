@@ -1,29 +1,31 @@
 # Project Canon Reconciliation Report
 
-Date: 2026-07-20
+Date: 2026-07-31
 
 ## Outcome
 
-Project Canon established and closed one traceable registry. After Capability
-002 governance materialization, the registry contains 27 registered rules,
-11 decision entries, 8 deprecation/history entries, 17 terminology entries,
-5 resolved conflicts, and no open conflicts.
+Project Canon maintains one traceable registry. After constitutional authority
+reconciliation and publication of Platform Constitution v1.0, the registry contains
+37 registered rules, 12 decision entries, 9 deprecation/history entries,
+17 terminology entries, 6 resolved conflicts, and no open conflicts.
 
 ## Classification summary
 
-- **Active:** constitutional constraints, accepted ADR-0001/0002, accepted closure decisions DEC-0008/0009, Capability 002 decision DEC-0011, canonical architecture rules, canonical specifications in their stated scopes, and compatible implementation-local contracts.
+- **Active:** Platform Constitution v1.0, accepted ADR-0001/0002, accepted decisions DEC-0008/0009/0011/0012, constitutional rules RULE-0028 through RULE-0037, canonical architecture rules, canonical specifications in their stated scopes, and compatible implementation-local contracts.
 - **Extended:** the capture-first rule, canonical lifecycle, Observation/OKG scope, and separate Execution model.
 - **Amended:** governance/orchestration phase boundaries and the platform/human authority boundary, through DEC-0008 and DEC-0009.
 - **Absorbed:** legacy `decisions/0001_Capture_First_Architecture.md` into the canonical ADR-0001 while preserving its dated consequences.
 - **Retired:** empty ADR placeholders and zero-length README/decision documentation; they carry no operative rule.
 - **Deprecated:** “Business Physics” as a GinzaAIpro platform name and “Operational Intelligence Runtime”; neither was an operative canonical subsystem.
-- **Superseded, Rejected:** no repository evidence justified applying these classifications to an operative rule or accepted decision.
+- **Superseded:** SAOP.md v0.1 as the platform's highest constitutional authority; it remains preserved as historical constitutional source material under DEC-0012 and DEP-0009.
+- **Rejected:** no repository evidence justified rejecting an operative canonical rule or accepted decision.
 
 ## Source inventory — governing and architectural
 
 | Source | Classification | Canonical contribution |
 |---|---|---|
-| `SAOP.md` | Active | Constitution, non-negotiable rules, governing order |
+| `governance/constitution/PLATFORM-CONSTITUTION.md` | Active — highest authority | Ratified Platform Constitution v1.0; permanent mission, principles, invariants, governance hierarchy, evolution doctrine, AI doctrine, and amendment process |
+| `SAOP.md` | Superseded / preserved | Historical constitutional source material; compatible principles remain effective only where incorporated into or consistent with Platform Constitution v1.0 under DEC-0012 and DEP-0009 |
 | `ROADMAP.md` | Active (planning scope) | Build sequencing; not architecture authority |
 | `decisions/0001_Capture_First_Architecture.md` | Absorbed | Legacy accepted duplicate of ADR-0001; dated implementation consequences retained |
 | `docs/architecture/adr/ADR-0001-Capture-First.md` | Active | Accepted capture-first decision |
@@ -105,9 +107,10 @@ No human decisions remain outstanding.
 
 1. **CON-0004 — resolved by DEC-0008:** pre-governance Orchestration may prepare, sequence, simulate, and propose. Material execution orchestration begins only inside an explicitly approved governance envelope; after approval it coordinates the authorized execution plan.
 2. **CON-0005 — resolved by DEC-0009:** human constitutional authority governs platform purpose, policy changes, critical exceptions, irreversible actions, and risk limits. Deterministic platform policy has only explicitly delegated routine authority. Mandatory safety, compliance, tenant-isolation, audit, and constitutional controls are non-bypassable. Emergency override is authorized, scoped, time-bound, justified, and immutably audited.
+3. **CON-0006 — resolved by DEC-0012:** Platform Constitution v1.0 supersedes SAOP.md v0.1 as GinzaAIpro's highest constitutional authority. SAOP.md remains preserved as historical constitutional source material, and compatible principles remain effective only where incorporated into or consistent with Platform Constitution v1.0.
 
-Both conflict rows retain their original issue and prior open-state history in the Conflict Register.
+All three conflict rows retain their original issue and prior open-state history in the Conflict Register.
 
 ## Preservation statement
 
-Project Canon sources and accepted architecture history remain intact. Only explicitly approved untracked duplicate/empty scaffolds were removed. The two substantive experimental models were preserved in redesigned form under COSMOS research with their former paths recorded in DEP-0007 and this report.
+Project Canon sources and accepted architecture history remain intact. Platform Constitution v1.0 is now the highest constitutional authority, while SAOP.md v0.1 remains preserved as historical constitutional source material under DEC-0012 and DEP-0009. Only explicitly approved untracked duplicate/empty scaffolds were removed. The two substantive experimental models were preserved in redesigned form under COSMOS research with their former paths recorded in DEP-0007 and this report.
