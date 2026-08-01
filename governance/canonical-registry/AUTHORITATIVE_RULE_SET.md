@@ -64,6 +64,14 @@ Last reconciled: 2026-08-01. This is a concise publication of `Active` and `Exte
 42. Capability 005 deterministically represents governed relative importance for admissible same-Organization `OperationalLeakage` artifacts under released prioritization policy while preserving `organizationId`, originating category, source-leakage lineage, traceability, policy and rule identity, stable identity, and replayability.
 43. `OperationalLeakagePriority` expresses governed relative importance only and does not recommend remediation, estimate ROI, schedule work, allocate resources, optimize, authorize execution, invoke AI assignment, replace the released legacy `PriorityProfile`, or recover missing provenance or category through lookup, inference, or side-channel input; inadmissible inputs produce governed failure without partial canonical output or silent omission.
 
+## Capability 006 rules
+
+44. Capability 006 deterministically derives immutable `OperationalRecommendation` artifacts from one admissible `OperationalLeakagePriority` using supplied released `RecommendationRule` versions and explicit evaluation time while preserving organization, source-priority, trace, rule, policy, schema, identity, and replay provenance.
+45. `OperationalRecommendation` expresses a governed intervention hypothesis only. Capability 006 does not repeat prioritization, manage rule lifecycle inside the engine, infer missing provenance or category, use repository or side-channel repair, plan or assign work, schedule, allocate resources, authorize or perform execution, persist state, invoke AI, or return partial canonical output after governed failure. Unmatched rules produce no recommendation and are not failures.
+
+Publication entries 44 and 45 correspond to registry identifiers RULE-0050 and
+RULE-0051. Publication numbering is distinct from Rule Register identifiers.
+
 ## Canonical lifecycle
 
 Reality → Capture → Operational Evidence / Runtime Events → Operational Signals → Operational Memory → Operational Health → Operational Cognition → Operational Orchestration → Governance → Execution → Verification → Learning.

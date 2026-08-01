@@ -71,6 +71,28 @@ The Capability 004 domain contract is verified but not released. No Capability 0
 
 The Capability 005 domain contract is verified but not released. No prioritization runtime engine or Release Record exists, so verification does not establish capability release under CGS-0005.
 
+## Capability 006 governance chain
+
+- [`ADR-0005`](../adr/ADR-0005-Released-Rule-Boundary.md) — assigns lifecycle filtering to the upstream Released-rule boundary and keeps deterministic engines lifecycle-neutral
+- [`ADR-0006`](../adr/ADR-0006-Priority-Artifact-Completeness.md) — requires complete deterministic input artifacts without supplemental runtime facts
+- [`ADR-0007`](../decisions/ADR-0007-Preservation-of-Canonical-Operational-Provenance.md) — requires immutable `organizationId` preservation and prohibits provenance repair through inference, lookup, or side channels
+- [`HCES-0000`](../hces/HCES-0000-Deterministic-Rule-Engine-Pattern.md) — accepted deterministic engine pattern
+- [`HCES-0000A`](../hces/HCES-0000A-Rule-Specification-Pattern.md) — accepted governed rule pattern
+- [`HCES-0006`](../hces/HCES-0006-Operational-Recommendations.md) — accepted canonical Capability 006 transition and recommendation boundary
+- [`HCES-0006A`](../hces/HCES-0006A-Recommendation-Rule-Engine.md) — accepted deterministic `RecommendationRuleEngine` specification
+- [`VVR-0006`](../vvr/VVR-0006-Operational-Recommendation.md) — accepted PASS capability verification evidence
+- [`VVR-0006A`](../vvr/VVR-0006A-Recommendation-Rule-Engine.md) — accepted PASS engine verification evidence
+
+Executed evidence records 25 / 25 focused `OperationalRecommendation` tests,
+20 / 20 focused `RecommendationRule` tests, 14 / 14 focused
+`RecommendationRuleEngine` tests, 366 / 366 complete Domain tests, and 65 / 65
+complete Engines tests as PASS. Domain and Engines typechecks and builds also
+PASS.
+
+Capability 006 and `RecommendationRuleEngine` are verified but not released.
+No Release Record exists, so accepted specifications, implementation, and PASS
+verification do not establish release under CGS-0005.
+
 ## Conflict status
 
 No unresolved conflicts remain.
