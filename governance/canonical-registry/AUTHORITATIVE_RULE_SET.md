@@ -53,6 +53,11 @@ Last reconciled: 2026-07-31. This is a concise publication of `Active` and `Exte
 38. Capability 003 consumes only released Semantic Facts and deterministically derives immutable `OperationalCondition` artifacts using released rule sets while preserving stable identity, semantic-fact references, traceability, rule-set version, replayability, and boundary integrity.
 39. `OperationalCondition` is descriptive operational state only and does not calculate leakage, assign priority or severity, generate recommendations, express financial impact, authorize execution, or contain AI reasoning; governed input failure produces no partial canonical output or silent omission.
 
+## Capability 004 rules
+
+40. Capability 004 deterministically derives immutable `OperationalLeakage` artifacts from admissible same-Organization `OperationalCondition` inputs under released leakage rules while preserving `organizationId`, source-condition lineage, traceability, rule provenance, stable identity, and replayability.
+41. `OperationalLeakage` expresses governed operational or economic consequence only and does not assign priority, estimate ROI, generate recommendations, authorize execution, or invoke AI reasoning; invalid, untraceable, or Organization-incompatible inputs produce a governed failure with no partial canonical output.
+
 ## Canonical lifecycle
 
 Reality → Capture → Operational Evidence / Runtime Events → Operational Signals → Operational Memory → Operational Health → Operational Cognition → Operational Orchestration → Governance → Execution → Verification → Learning.

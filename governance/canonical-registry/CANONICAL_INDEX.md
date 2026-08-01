@@ -53,6 +53,13 @@ This chain governs Capability 002 only. It preserves the released Capability
 Capability 003 is verified but not released. No Release Record exists, so neither implementation completion nor VVR acceptance establishes release under CGS-0005.
 
 
+## Capability 004 governance chain
+
+- [`HCES-0004`](../hces/HCES-0004-Operational-Leakage.md) — accepted deterministic Operational Leakage contract, including ADR-0007 canonical operational provenance requirements
+- [`VVR-0004`](../vvr/VVR-0004-Operational-Leakage.md) — accepted PASS verification evidence for the domain contract; 16 focused tests, 366 full-domain tests, typecheck, build, and repository integration passed
+
+The Capability 004 domain contract is verified but not released. No Capability 004 runtime engine or Release Record exists, so verification does not establish capability release under CGS-0005.
+
 ## Conflict status
 
 No unresolved conflicts remain.
