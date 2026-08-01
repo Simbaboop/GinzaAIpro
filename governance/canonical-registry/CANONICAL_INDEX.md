@@ -1,6 +1,6 @@
 # Canonical Index
 
-Last reconciled and closed: 2026-07-31
+Last reconciled and closed: 2026-08-01
 
 ## Authority and process
 
@@ -59,6 +59,17 @@ Capability 003 is verified but not released. No Release Record exists, so neithe
 - [`VVR-0004`](../vvr/VVR-0004-Operational-Leakage.md) — accepted PASS verification evidence for the domain contract; 16 focused tests, 366 full-domain tests, typecheck, build, and repository integration passed
 
 The Capability 004 domain contract is verified but not released. No Capability 004 runtime engine or Release Record exists, so verification does not establish capability release under CGS-0005.
+
+
+## Capability 005 governance chain
+
+- [`ADR-0004`](../adr/ADR-0004-Legacy-PriorityProfile-Compatibility.md) — preserves the released legacy `PriorityProfile` and introduces `OperationalLeakagePriority` as a distinct additive canonical contract
+- [`ADR-0006`](../adr/ADR-0006-Priority-Artifact-Completeness.md) — requires originating leakage category and complete deterministic downstream artifacts
+- [`ADR-0007`](../decisions/ADR-0007-Preservation-of-Canonical-Operational-Provenance.md) — requires immutable `organizationId` preservation and prohibits provenance repair through inference, lookup, or side channels
+- [`HCES-0005`](../hces/HCES-0005-Priority-Profiles.md) — accepted deterministic governed-priority contract
+- [`VVR-0005`](../vvr/VVR-0005-Operational-Leakage-Priority.md) — accepted PASS verification evidence; 15 focused tests, 366 full-domain tests, typecheck, build, and provenance/category validation passed
+
+The Capability 005 domain contract is verified but not released. No prioritization runtime engine or Release Record exists, so verification does not establish capability release under CGS-0005.
 
 ## Conflict status
 

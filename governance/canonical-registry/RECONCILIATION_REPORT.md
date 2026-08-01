@@ -6,12 +6,12 @@ Date: 2026-08-01
 
 Project Canon maintains one traceable registry. After constitutional authority
 reconciliation, publication of Platform Constitution v1.0, and acceptance of the Canonical Governance Standards, the registry contains
-47 registered rules, 14 decision entries, 9 deprecation/history entries,
-20 terminology entries, 6 resolved conflicts, and no open conflicts.
+49 registered rules, 15 decision entries, 9 deprecation/history entries,
+21 terminology entries, 6 resolved conflicts, and no open conflicts.
 
 ## Classification summary
 
-- **Active:** Platform Constitution v1.0; accepted CGS-0001, CGS-0004, and CGS-0005; accepted ADR-0001/0002, Capability 003 ADR-0003, and ADR-0007; accepted decisions DEC-0008/0009/0011/0012/0013/0014; constitutional rules RULE-0028 through RULE-0037; governance-process rules RULE-0038 through RULE-0043; Capability 003 rules RULE-0044 and RULE-0045; Capability 004 rules RULE-0046 and RULE-0047; accepted HCES-0003 and HCES-0004; VVR-0003 and VVR-0004 as verification evidence only; canonical architecture rules; canonical specifications in their stated scopes; and compatible implementation-local contracts. Capabilities 003 and 004 remain verified but not released because no Release Record exists; Capability 004 also has no runtime engine.
+- **Active:** Platform Constitution v1.0; accepted CGS-0001, CGS-0004, and CGS-0005; accepted ADR-0001/0002, Capability 003 ADR-0003, and ADR-0007; accepted decisions DEC-0008/0009/0011/0012/0013/0014; constitutional rules RULE-0028 through RULE-0037; governance-process rules RULE-0038 through RULE-0043; Capability 003 rules RULE-0044 and RULE-0045; Capability 004 rules RULE-0046 and RULE-0047; Capability 005 rules RULE-0048 and RULE-0049; accepted HCES-0003, HCES-0004, and HCES-0005; VVR-0003, VVR-0004, and VVR-0005 as verification evidence only; canonical architecture rules; canonical specifications in their stated scopes; and compatible implementation-local contracts. Capabilities 003, 004, and 005 remain verified but not released because no Release Record exists; Capabilities 004 and 005 also have no runtime engine.
 - **Extended:** the capture-first rule, canonical lifecycle, Observation/OKG scope, and separate Execution model.
 - **Amended:** governance/orchestration phase boundaries and the platform/human authority boundary, through DEC-0008 and DEC-0009.
 - **Absorbed:** legacy `decisions/0001_Capture_First_Architecture.md` into the canonical ADR-0001 while preserving its dated consequences.
@@ -40,6 +40,10 @@ reconciliation, publication of Platform Constitution v1.0, and acceptance of the
 | `governance/decisions/ADR-0007-Preservation-of-Canonical-Operational-Provenance.md` | Active — accepted decision | Establishes immutable `organizationId` preservation across operational artifacts and prohibits provenance recovery through inference, repositories, or side-channel inputs |
 | `governance/hces/HCES-0004-Operational-Leakage.md` | Active — accepted Capability 004 specification | Defines deterministic leakage derivation, same-Organization admissibility, canonical provenance, identity, governed failure, and strict consequence-only boundaries |
 | `governance/vvr/VVR-0004-Operational-Leakage.md` | Active — accepted PASS verification evidence only | Reports 16 focused tests, 366 full-domain tests, typecheck, build, repository integration, and immutable `organizationId` provenance PASS; explicitly records Capability 004 as not released |
+| `governance/adr/ADR-0004-Legacy-PriorityProfile-Compatibility.md` | Active — accepted decision | Preserves the released legacy `PriorityProfile` and introduces `OperationalLeakagePriority` as a distinct additive canonical contract |
+| `governance/adr/ADR-0006-Priority-Artifact-Completeness.md` | Active — accepted decision | Requires originating leakage category and complete deterministic downstream priority artifacts without supplemental runtime facts |
+| `governance/hces/HCES-0005-Priority-Profiles.md` | Active — accepted Capability 005 specification | Defines same-Organization admissibility, deterministic governed priority, immutable provenance and category preservation, compatibility, failure integrity, and strict priority-only boundaries |
+| `governance/vvr/VVR-0005-Operational-Leakage-Priority.md` | Active — accepted PASS verification evidence only | Reports 15 focused tests, 366 full-domain tests, typecheck, build, immutable `organizationId` provenance, originating-category validation, and explicit not-released status |
 | `docs/architecture/adr/ADR-0003` through `ADR-0006` | Retired | Empty placeholders, no decisions |
 | `docs/architecture/README.md` | Active | Declares canonical architecture scope and ADR location |
 | `ARCHITECTURE_PRINCIPLES.md` | Active | 15 canonical principles |
@@ -107,11 +111,12 @@ The migrated research is explicitly experimental, non-canonical, non-executable,
 - The short constitutional lifecycle is extended by the canonical architecture lifecycle with Evidence, Signals, Memory, Health, Cognition, Orchestration, Verification, and Learning.
 - Capability 003 introduces `OperationalCondition` as the immutable descriptive-state boundary between released Semantic Facts and downstream Operational Leakage. ADR-0003, HCES-0003, and VVR-0003 are accepted, but the capability remains verified rather than released because no Release Record exists.
 - Capability 004 introduces `OperationalLeakage` as the immutable governed-consequence boundary downstream of `OperationalCondition`, preserving same-Organization provenance while excluding priority, ROI, recommendations, execution authority, and AI reasoning. HCES-0004 and VVR-0004 are accepted, but only the domain contract is verified; no runtime engine or Release Record exists.
+- Capability 005 introduces `OperationalLeakagePriority` as the immutable governed-relative-importance boundary downstream of `OperationalLeakage`, preserving same-Organization provenance, originating category, policy and rule identity, lineage, and replayability while remaining distinct from recommendations, ROI, scheduling, optimization, execution authority, AI assignment, and the released legacy `PriorityProfile`. The domain contract is verified, but no prioritization runtime engine or Release Record exists.
 - Implementation-local runtime and capability contracts specialize canonical architecture but do not outrank it.
 
 ## Terminology drift
 
-The terminology register resolves or flags Event vs Operational Event, Event vs Signal, Runtime Health vs Operational Health, Operational Intelligence vs Operational Cognition, Observation vs Evidence vs OKG, Execution fields vs Execution Aggregate, orchestration naming, Organizational Dynamics, Operational Runtime, `OperationalCondition` as descriptive operational state, `OperationalLeakage` as governed consequence distinct from priority, ROI, recommendations, execution authority, and AI reasoning, and the relationship between the Governance Operating System authority layer and its Canonical Governance Standards.
+The terminology register resolves or flags Event vs Operational Event, Event vs Signal, Runtime Health vs Operational Health, Operational Intelligence vs Operational Cognition, Observation vs Evidence vs OKG, Execution fields vs Execution Aggregate, orchestration naming, Organizational Dynamics, Operational Runtime, `OperationalCondition` as descriptive operational state, `OperationalLeakage` as governed consequence distinct from priority, ROI, recommendations, execution authority, and AI reasoning, `OperationalLeakagePriority` as governed relative importance distinct from recommendations, ROI, scheduling, optimization, execution authority, AI assignment, and legacy `PriorityProfile`, and the relationship between the Governance Operating System authority layer and its Canonical Governance Standards.
 
 ## Conflict closure
 

@@ -1,6 +1,6 @@
 # Currently Authoritative Rule Set
 
-Last reconciled: 2026-07-31. This is a concise publication of `Active` and `Extended` entries in the Rule Register. Source text governs if a summary loses detail.
+Last reconciled: 2026-08-01. This is a concise publication of `Active` and `Extended` entries in the Rule Register. Source text governs if a summary loses detail.
 
 ## Constitutional rules
 
@@ -57,6 +57,12 @@ Last reconciled: 2026-07-31. This is a concise publication of `Active` and `Exte
 
 40. Capability 004 deterministically derives immutable `OperationalLeakage` artifacts from admissible same-Organization `OperationalCondition` inputs under released leakage rules while preserving `organizationId`, source-condition lineage, traceability, rule provenance, stable identity, and replayability.
 41. `OperationalLeakage` expresses governed operational or economic consequence only and does not assign priority, estimate ROI, generate recommendations, authorize execution, or invoke AI reasoning; invalid, untraceable, or Organization-incompatible inputs produce a governed failure with no partial canonical output.
+
+
+## Capability 005 rules
+
+42. Capability 005 deterministically represents governed relative importance for admissible same-Organization `OperationalLeakage` artifacts under released prioritization policy while preserving `organizationId`, originating category, source-leakage lineage, traceability, policy and rule identity, stable identity, and replayability.
+43. `OperationalLeakagePriority` expresses governed relative importance only and does not recommend remediation, estimate ROI, schedule work, allocate resources, optimize, authorize execution, invoke AI assignment, replace the released legacy `PriorityProfile`, or recover missing provenance or category through lookup, inference, or side-channel input; inadmissible inputs produce governed failure without partial canonical output or silent omission.
 
 ## Canonical lifecycle
 
