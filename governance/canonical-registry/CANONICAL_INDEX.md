@@ -116,6 +116,27 @@ Capability 007 and `ExecutionPlanningEngine` are verified but not released.
 No Release Record exists, so accepted specifications, implementation, and PASS
 verification do not establish release under CGS-0005.
 
+## Capability 008A governance chain
+
+- [`ADR-0007`](../decisions/ADR-0007-Preservation-of-Canonical-Operational-Provenance.md) — requires immutable organization provenance without inference or side-channel repair
+- [`ADR-0008`](../decisions/ADR-0008-Canonical-Ownership-of-ExecutionPlan.md) — separates canonical planning-only `ExecutionPlan` from legacy `RuntimeExecutionPlan`
+- [`ADR-0009`](../decisions/ADR-0009-Canonical-Ownership-of-Runtime-Admission.md) — assigns sole canonical runtime-admission ownership to `RuntimeAdmission`
+- [`HCES-0008A`](../hces/HCES-0008A-RuntimeAdmission.md) — accepted immutable deterministic append-only runtime-admission contract
+- [`VVR-0008A`](../vvr/VVR-0008A-RuntimeAdmission-Implementation-Verification.md) — accepted PASS implementation verification evidence
+
+Executed evidence records 64 / 64 focused `RuntimeAdmission` tests and 366 /
+366 complete Domain tests across 14 files as PASS. Domain typecheck and build
+also PASS.
+
+Implementation and verification consume the canonical verified
+`ExecutionPlan` contract. Actual governed runtime admission requires an
+upstream plan that has crossed every applicable release and admissibility
+boundary. A plan alone is not permission to execute.
+
+Capability 008A is verified but not released. No Release Record exists, so
+accepted specifications, implementation, and PASS verification do not
+authorize release or runtime deployment under CGS-0005.
+
 ## Conflict status
 
 No unresolved conflicts remain.

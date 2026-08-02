@@ -80,6 +80,14 @@ RULE-0051. Publication numbering is distinct from Rule Register identifiers.
 Publication entries 46 and 47 correspond to registry identifiers RULE-0052 and
 RULE-0053. Publication numbering is distinct from Rule Register identifiers.
 
+## Capability 008A rules
+
+48. Capability 008A materializes an immutable deterministic append-only `RuntimeAdmission` binding one canonical runtime-admissible `ExecutionPlan` and an explicit non-empty work-package selection to organization, recommendation, trace, planning-rule, planning-policy, execution-plan-schema, admission-policy, actor, reason, ordinal, timestamp, identity, and serialization provenance.
+49. `RuntimeAdmission` authorizes entry into runtime but does not execute, schedule, assign, allocate, orchestrate, retry, persist, publish events, infer outcomes, generate evidence, invoke AI, mutate the plan, or manage revocation or expiration lifecycle. Implementation and verification may consume the canonical verified plan contract; operational admission requires the plan to cross applicable release and admissibility boundaries. A plan alone is not execution permission.
+
+Publication entries 48 and 49 correspond to registry identifiers RULE-0054 and
+RULE-0055. Publication numbering is distinct from Rule Register identifiers.
+
 ## Canonical lifecycle
 
 Reality → Capture → Operational Evidence / Runtime Events → Operational Signals → Operational Memory → Operational Health → Operational Cognition → Operational Orchestration → Governance → Execution → Verification → Learning.
