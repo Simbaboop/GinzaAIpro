@@ -165,6 +165,30 @@ Implementation and verification may consume the canonical verified `ExecutionEve
 
 Capability 009 is **Verified but Not Released** because no tracked accepted Release Record exists. ADR, HCES, GM, VVR, tests, build, staging, merge, or commit confer no release or runtime-deployment authority.
 
+## Capability 010 governance chain
+
+- [`DISC-0009`](../discovery/DISC-0009-Canonical-Verification-Boundary.md) — completed historical discovery identifying deterministic Verification as the canonical post-observation boundary; no release authority
+- [`ADR-0019`](../decisions/ADR-0019-Canonical-Deterministic-Verification-Architecture.md) — accepted deterministic, evidence-backed, single-`ObservedOutcome` Verification architecture
+- [`HCES-0010`](../hces/HCES-0010-Deterministic-Verification.md) — accepted 110-requirement contract with 33 governed failure codes
+- [`GM-0010`](../milestones/GM-0010-Deterministic-Verification-Governance-Acceptance.md) — accepted bounded implementation authorization only
+- [`VVR-0010`](../vvr/VVR-0010-Deterministic-Verification-Verification-and-Validation-Record.md) — accepted unconditional PASS verification evidence
+
+Executed evidence records 13 / 13 focused `Verification` tests, 366 / 366
+complete Domain tests across 14 files, and 11 / 11 complete Core tests as PASS.
+Domain and Core typechecks and builds also PASS. All 110 / 110 normative
+requirements are accounted for, and the 33 / 33 failure-code vocabulary exactly
+matches implementation. Exactly one canonical public Domain `Verification`
+exists, with no legacy Domain export or duplicate authority. Recorded
+implementation hashes match current files.
+
+Implementation and verification may consume canonical verified
+`ObservedOutcome` and Evidence contracts. Operational use requires all
+applicable upstream release, admissibility, and runtime-governance boundaries.
+
+Capability 010 is **Verified but Not Released** because no tracked accepted
+Release Record exists. ADR, HCES, GM, VVR, tests, builds, staging, merge, or
+commit confer no release, production, deployment, or operational authority.
+
 ## Conflict status
 
 No unresolved conflicts remain.

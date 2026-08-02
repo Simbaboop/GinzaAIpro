@@ -104,6 +104,14 @@ RULE-0057. Publication numbering is distinct from Rule Register identifiers.
 Publication entries 52 and 53 correspond to registry identifiers RULE-0058 and
 RULE-0059. Publication numbering is distinct from Rule Register identifiers.
 
+## Capability 010 rules
+
+54. Capability 010 deterministically materializes one deeply immutable canonical `Verification` for exactly one canonical `ObservedOutcome` using 1–128 explicit canonical Evidence records, preserving Organization, subject, outcome, Evidence, method, time, limitation, optional verifier, notes, confidence/calibration, identity, serialization, validation, and failure provenance.
+55. `Verification` qualifies one observation using explicit Evidence and the closed judgment `confirmed`, `refuted`, or `inconclusive`. It does not recreate Evidence, mutate observation or Evidence, infer missing Evidence, convert completion into proof, claim causality, calculate business impact, evaluate recommendation quality, generate Outcome Evaluation or Learning, implement calibration methodology, persist, access repositories, transport data, invoke AI, or create a second canonical authority. Implementation and verification may consume canonical verified `ObservedOutcome` and Evidence contracts; operational use requires all applicable upstream release, admissibility, and runtime-governance boundaries. Capability 010 is Verified but Not Released because no tracked accepted Release Record exists.
+
+Publication entries 54 and 55 correspond to registry identifiers RULE-0060 and
+RULE-0061. Publication numbering is distinct from Rule Register identifiers.
+
 ## Canonical lifecycle
 
 Reality → Capture → Operational Evidence / Runtime Events → Operational Signals → Operational Memory → Operational Health → Operational Cognition → Operational Orchestration → Governance → Execution → Verification → Learning.
