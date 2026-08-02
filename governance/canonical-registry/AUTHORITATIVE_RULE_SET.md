@@ -72,6 +72,14 @@ Last reconciled: 2026-08-01. This is a concise publication of `Active` and `Exte
 Publication entries 44 and 45 correspond to registry identifiers RULE-0050 and
 RULE-0051. Publication numbering is distinct from Rule Register identifiers.
 
+## Capability 007 rules
+
+46. Capability 007 deterministically derives one immutable planning-only `ExecutionPlan` from one or more admissible `OperationalRecommendation` artifacts through one selected supplied released `ExecutionPlanningRule` and an explicit generation timestamp while preserving organization, recommendation, trace, planning-rule, planning-policy, schema, identity, dependency, and creation provenance.
+47. `ExecutionPlan` describes how admissible recommended work should be carried out. Capability 007 does not execute, schedule, assign, allocate, persist, invoke AI, manage rule or recommendation lifecycle, infer missing provenance, or evaluate completion or success; invalid or conflicting inputs, rules, templates, or dependencies produce governed failure with no partial canonical plan.
+
+Publication entries 46 and 47 correspond to registry identifiers RULE-0052 and
+RULE-0053. Publication numbering is distinct from Rule Register identifiers.
+
 ## Canonical lifecycle
 
 Reality → Capture → Operational Evidence / Runtime Events → Operational Signals → Operational Memory → Operational Health → Operational Cognition → Operational Orchestration → Governance → Execution → Verification → Learning.

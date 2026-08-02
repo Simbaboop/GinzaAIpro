@@ -93,6 +93,29 @@ Capability 006 and `RecommendationRuleEngine` are verified but not released.
 No Release Record exists, so accepted specifications, implementation, and PASS
 verification do not establish release under CGS-0005.
 
+## Capability 007 governance chain
+
+- [`ADR-0005`](../adr/ADR-0005-Released-Rule-Boundary.md) — keeps lifecycle filtering upstream of deterministic planning
+- [`ADR-0006`](../adr/ADR-0006-Priority-Artifact-Completeness.md) — establishes complete deterministic upstream artifacts
+- [`ADR-0007`](../decisions/ADR-0007-Preservation-of-Canonical-Operational-Provenance.md) — requires immutable organization provenance without side-channel repair
+- [`ADR-0008`](../decisions/ADR-0008-Canonical-Ownership-of-ExecutionPlan.md) — assigns the canonical planning-only name `ExecutionPlan`, classifies `RuntimeExecutionPlan` separately, and records the completed verified migration
+- [`HCES-0000`](../hces/HCES-0000-Deterministic-Rule-Engine-Pattern.md) — accepted deterministic engine pattern
+- [`HCES-0000A`](../hces/HCES-0000A-Rule-Specification-Pattern.md) — accepted governed rule pattern
+- [`HCES-0007`](../hces/HCES-0007-Execution-Plan.md) — accepted planning-only capability contract
+- [`HCES-0007A`](../hces/HCES-0007A-Execution-Planning-Engine.md) — accepted deterministic planning-engine specification
+- [`VVR-0007`](../vvr/VVR-0007-Execution-Planning.md) — accepted PASS capability verification evidence
+- [`VVR-0007A`](../vvr/VVR-0007A-Execution-Planning-Engine.md) — accepted PASS engine verification evidence
+
+Executed evidence records 27 / 27 focused `ExecutionPlan` tests, 21 / 21
+focused `ExecutionPlanningRule` tests, 51 / 51 focused
+`ExecutionPlanningEngine` tests, 366 / 366 complete Domain tests, and 65 / 65
+complete Engines tests as PASS. Domain and Engines typechecks and builds also
+PASS.
+
+Capability 007 and `ExecutionPlanningEngine` are verified but not released.
+No Release Record exists, so accepted specifications, implementation, and PASS
+verification do not establish release under CGS-0005.
+
 ## Conflict status
 
 No unresolved conflicts remain.
