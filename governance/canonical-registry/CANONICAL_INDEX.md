@@ -1,6 +1,6 @@
 # Canonical Index
 
-Last reconciled and closed: 2026-08-01
+Last reconciled and closed: 2026-08-02
 
 ## Authority and process
 
@@ -136,6 +136,19 @@ boundary. A plan alone is not permission to execute.
 Capability 008A is verified but not released. No Release Record exists, so
 accepted specifications, implementation, and PASS verification do not
 authorize release or runtime deployment under CGS-0005.
+
+## Capability 008B governance chain
+
+- [`ADR-0010`](../decisions/ADR-0010-Immutable-Execution-Event-Architecture.md) — assigns sole domain ownership of immutable execution-occurrence facts to `ExecutionEvent`
+- [`HCES-0008B`](../hces/HCES-0008B-ExecutionEvent.md) — accepted 75-requirement contract with one atomic fact, deterministic identity and serialization, deep immutability, temporal ordering, and 15 governed failure codes
+- [`GM-0008B`](../milestones/GM-0008B-ExecutionEvent-Governance-Acceptance.md) — accepted implementation-authorization artifact; not release authority
+- [`VVR-0008B`](../vvr/VVR-0008B-ExecutionEvent-Verification-and-Validation-Record.md) — accepted unconditional PASS verification evidence
+
+Executed evidence records 58 / 58 focused `ExecutionEvent` tests and 366 / 366 complete Domain tests across 14 files as PASS. Domain typecheck and Domain build also PASS.
+
+Implementation and verification may consume the canonical verified `RuntimeAdmission` contract. Operational `ExecutionEvent` use requires upstream `RuntimeAdmission` and `ExecutionPlan` to have crossed all applicable release, admissibility, and runtime-governance boundaries.
+
+Capability 008B is verified but **Not Released** because no tracked accepted Release Record exists. ADR, HCES, GM, VVR, tests, build, staging, merge, or commit do not authorize release or runtime deployment.
 
 ## Conflict status
 

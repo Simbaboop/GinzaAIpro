@@ -1,6 +1,6 @@
 # Currently Authoritative Rule Set
 
-Last reconciled: 2026-08-01. This is a concise publication of `Active` and `Extended` entries in the Rule Register. Source text governs if a summary loses detail.
+Last reconciled: 2026-08-02. This is a concise publication of `Active` and `Extended` entries in the Rule Register. Source text governs if a summary loses detail.
 
 ## Constitutional rules
 
@@ -87,6 +87,14 @@ RULE-0053. Publication numbering is distinct from Rule Register identifiers.
 
 Publication entries 48 and 49 correspond to registry identifiers RULE-0054 and
 RULE-0055. Publication numbering is distinct from Rule Register identifiers.
+
+## Capability 008B rules
+
+50. Capability 008B materializes one deeply immutable deterministic `ExecutionEvent` for exactly one admitted work package after admission, recording only the atomic `EXECUTION_OCCURRED` fact while preserving canonical admission, plan, organization, work-package, recommendation, trace, planning-rule, planning-policy, schema, provenance, identity, serialization, and temporal lineage through a defensive `RuntimeAdmission` projection.
+51. `ExecutionEvent` does not execute, schedule, assign, allocate, orchestrate, retry, persist, publish externally, infer outcomes, generate evidence, evaluate success or quality, invoke AI, mutate `RuntimeAdmission` or `ExecutionPlan`, or manage workflow or lifecycle state. Implementation and verification may consume the canonical verified `RuntimeAdmission` contract; operational use requires upstream `RuntimeAdmission` and `ExecutionPlan` to cross all applicable release, admissibility, and runtime-governance boundaries. Capability 008B is verified but Not Released because no tracked accepted Release Record exists.
+
+Publication entries 50 and 51 correspond to registry identifiers RULE-0056 and
+RULE-0057. Publication numbering is distinct from Rule Register identifiers.
 
 ## Canonical lifecycle
 
