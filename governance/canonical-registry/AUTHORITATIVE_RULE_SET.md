@@ -44,7 +44,7 @@ Last reconciled: 2026-08-02. This is a concise publication of `Active` and `Exte
 32. Every new capability and every material evolution of a released capability follows the governed lifecycle: discovery when needed, architectural decision when required, accepted specification, explicit authorization, scoped implementation, verification and validation, release, and governed evolution.
 33. Implementation requires explicit accepted status and authorization identifying allowed scope and protected artifacts; draft, proposed, discovery, or superseded artifacts, roadmap position, existing code, and capability numbering do not authorize implementation.
 34. Verification and validation are evidence-based, reproducible, scoped, and independent of desired release outcomes; executed checks, inferred conclusions, limitations, excluded phases, and repository-scope changes are reported accurately, and an unexecuted check is not a pass.
-35. Every verification record selects exactly one disposition: PASS only after complete required conformance; CONDITIONAL PASS only for an explicit bounded non-defect limitation with a closure condition; or FAIL when requirements, boundaries, integrity, authorization, or required evidence do not conform.
+35. Every verification record selects exactly one disposition under CGS-0004: PASS only after complete required conformance; CONDITIONAL PASS only for an explicit bounded non-defect limitation with a recorded closure condition; or FAIL when requirements, architecture boundaries, integrity, authorization, or required evidence do not conform.
 36. Release is a separate authorized human governance decision requiring accepted governing artifacts, eligible verification, explicit limitations, and no unresolved blocker; implementation completion, a successful build, or a merged change does not independently establish release.
 37. Acceptance of a Release Record freezes its identified baseline; later correction, extension, breaking change, deprecation, or removal is explicitly classified, governed, verified, and recorded without silently rewriting historical evidence.
 
@@ -95,6 +95,14 @@ RULE-0055. Publication numbering is distinct from Rule Register identifiers.
 
 Publication entries 50 and 51 correspond to registry identifiers RULE-0056 and
 RULE-0057. Publication numbering is distinct from Rule Register identifiers.
+
+## Capability 009 rules
+
+52. Capability 009 materializes one deeply immutable deterministic `ObservedOutcome` from one canonical verified `ExecutionEvent`, recording exactly one bounded observation while preserving event, admission, plan, organization, work-package, recommendation, trace, rule, policy, schema, observation, provenance, identity, serialization, and temporal lineage.
+53. `ObservedOutcome` records observation only and does not claim causation, verify truth, evaluate success or quality, generate evidence, execute, schedule, assign, allocate, orchestrate, retry, persist, publish externally, aggregate, invoke AI, mutate upstream artifacts, or manage workflow or lifecycle state. Implementation and verification may consume the canonical verified `ExecutionEvent` contract; operational use requires `ExecutionEvent`, `RuntimeAdmission`, and `ExecutionPlan` to cross all applicable release, admissibility, and runtime-governance boundaries. Capability 009 is Verified but Not Released because no tracked accepted Release Record exists.
+
+Publication entries 52 and 53 correspond to registry identifiers RULE-0058 and
+RULE-0059. Publication numbering is distinct from Rule Register identifiers.
 
 ## Canonical lifecycle
 

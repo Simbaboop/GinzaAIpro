@@ -150,6 +150,21 @@ Implementation and verification may consume the canonical verified `RuntimeAdmis
 
 Capability 008B is verified but **Not Released** because no tracked accepted Release Record exists. ADR, HCES, GM, VVR, tests, build, staging, merge, or commit do not authorize release or runtime deployment.
 
+## Capability 009 governance chain
+
+- [`ADR-0011`](../decisions/ADR-0011-Immutable-Observed-Outcome-Architecture.md) — assigns sole canonical ownership of immutable bounded observations to `ObservedOutcome`
+- [`HCES-0009`](../hces/HCES-0009-ObservedOutcome.md) — accepted 72-requirement contract with deterministic identity and serialization, strict temporal and provenance rules, and 26 governed failure codes
+- [`GM-0009`](../milestones/GM-0009-ObservedOutcome-Governance-Acceptance.md) — accepted implementation-authorization artifact; not release authority
+- [`VVR-0009`](../vvr/VVR-0009-ObservedOutcome-Verification-and-Validation-Record.md) — accepted unconditional PASS verification evidence
+
+Executed evidence records 64 / 64 focused `ObservedOutcome` tests and 366 / 366 complete Domain tests across 14 files as PASS. Domain typecheck and Domain build also PASS.
+
+Implementation and verification may consume the canonical verified `ExecutionEvent` contract. Operational `ObservedOutcome` use requires `ExecutionEvent`, `RuntimeAdmission`, and `ExecutionPlan` to cross all applicable release, admissibility, and runtime-governance boundaries.
+
+`ObservedOutcome` records one immutable bounded observation only and does not claim causation, verify truth, evaluate success or quality, generate evidence, execute, schedule, assign, allocate, orchestrate, retry, persist, publish externally, aggregate, invoke AI, mutate upstream artifacts, or manage workflow or lifecycle state.
+
+Capability 009 is **Verified but Not Released** because no tracked accepted Release Record exists. ADR, HCES, GM, VVR, tests, build, staging, merge, or commit confer no release or runtime-deployment authority.
+
 ## Conflict status
 
 No unresolved conflicts remain.
