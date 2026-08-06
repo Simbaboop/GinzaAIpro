@@ -19,7 +19,8 @@ RELEASED
 - Release type: Initial capability release
 - Release date: 2026-08-06
 - Proposed release tag: `capability-002-v1.0.0`
-- Release commit: Pending creation of the authorized release commit
+- Frozen implementation baseline commit: `af8c5a01fc0fc21d1e6f14efb81b0a9899ff417c`
+- Release-record commit: identified by the `capability-002-v1.0.0` tag
 - Package: `@ginzaaipro/evidence-semantics`
 - Package version: `0.1.0`
 
@@ -181,9 +182,11 @@ Intentionally deferred or prohibited:
 
 ## Baseline freeze declaration
 
-Upon acceptance and creation of the authorized release commit, RR-0002 freezes
-the Capability 002 baseline identified by that commit and the proposed
-`capability-002-v1.0.0` tag, including:
+RR-0002 freezes the Capability 002 implementation baseline at
+`af8c5a01fc0fc21d1e6f14efb81b0a9899ff417c`. The
+`capability-002-v1.0.0` tag identifies the immediately following
+release-record commit, which differs only by binding this baseline identifier
+into the accepted RR. The frozen baseline includes:
 
 - the public contract names and semantics listed above;
 - `packages/evidence-semantics` ownership and Domain-only dependency;
@@ -195,9 +198,8 @@ the Capability 002 baseline identified by that commit and the proposed
 - accepted tests and EVR-0002/ACR-0002 evidence;
 - AMD-0002 `instant` compatibility commitment.
 
-The final release commit identifier must replace the pending field before the
-tag is created. Later correction, extension, deprecation, or removal must use
-explicit governed evolution and must not rewrite this historical record.
+Later correction, extension, deprecation, or removal must use explicit
+governed evolution and must not rewrite this historical record.
 
 ## Authorized next work after release
 
