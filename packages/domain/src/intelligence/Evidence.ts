@@ -56,7 +56,11 @@ const expectedValueKinds: Readonly<Record<string, EvidenceValue["kind"]>> =
 const renderComponent = (component: EvidenceComponent): string => {
   const ruleReference =
     `${component.constructionRule.id}@${component.constructionRule.version}`;
-  if (expectedValueKinds[ruleReference] !== component.value.kind) {
+  const expectedKind = expectedValueKinds[ruleReference];
+  const releasedInstantCompatibility =
+    ruleReference === "VAL-EVIDENCE-TEXT-001@1.0.0" &&
+    component.value.kind === "instant";
+  if (expectedKind !== component.value.kind && !releasedInstantCompatibility) {
     throw new Error(
       "Evidence statement rendering failed for the construction rule.",
     );
