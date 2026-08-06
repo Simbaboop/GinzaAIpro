@@ -193,6 +193,8 @@ commit confer no release, production, deployment, or operational authority.
 
 No unresolved conflicts remain.
 
+- `CON-0008` was resolved by accepted `AMD-0002`: the independently reproducible Capability 002 non-ASCII fixed vector is ratified, and the minimum released `instant` Evidence compatibility correction is authorized.
+- `CON-0007` was resolved by accepted `AMD-0001`: the Capability 002 resolver contract now returns `Promise<ResolveEvidenceSemanticsResult>` while preserving deterministic behavior, typed failures, Web Crypto SHA-256, the Domain-only runtime dependency, and all existing scope restrictions. Successor feasibility, readiness, and execution authorization remain required before implementation resumes.
 - `CON-0004` was resolved by DEC-0008: Orchestration may plan and propose before Governance and coordinates material execution only within an approved governance envelope.
 - `CON-0005` was resolved by DEC-0009: human constitutional authority governs the platform; deterministic platform policy exercises only explicitly delegated routine authority under mandatory controls.
 - `CON-0006` was resolved by DEC-0012: Platform Constitution v1.0 supersedes SAOP.md v0.1 as the highest constitutional authority while preserving SAOP.md as historical source material.

@@ -333,6 +333,14 @@ describe("canonical Evidence aggregate and statement rendering", () => {
   });
 
   it("keeps the aggregate and its graph immutable", () => {
+    const instantComponent = component(
+      "component_instant",
+      { kind: "instant", value: timestamp },
+    );
+    expect(evidence([instantComponent]).statement).toContain(
+      `value=instant("${timestamp}")`,
+    );
+
     const callerComponents = [component("component_001")];
     const contract = evidence(callerComponents);
     callerComponents.push(component("component_002"));
